@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件对象</title>
+		<style>
+			#areaDiv {
+				width: 200px;
+				height: 80px;
+				border: 5px solid #000000;
+			}
+
+			#showMsg {
+				width: 200px;
+				height: 20px;
+				border: 5px solid #000000;
+			}
+		</style>
+		<script>
+			/*
+			 * 事件对象
+			 * 当事件的响应函数被触发时,浏览器每次都会将一个事件对象作为参数传进响应函数
+			 *  在事件对象中封装了当前事件相关的一起信息.
+			 * 例如:鼠标的坐标,键盘哪个按键按下,鼠标滚轮滚动的方向等等.
+			 */
+			window.onload = function() {
+				// 实现功能,当鼠标在A区域移动时,在B中显示鼠标的坐标数据
+				// 获取两个div
+				var areaDiv = document.getElementById("areaDiv");
+				var showMsg = document.getElementById("showMsg");
+				/* 
+				 * onmousermove 事件会在鼠标指针移动时发生。
+				 * 
+				 * clientX 返回当事件被触发时，鼠标指针的水平坐标。 
+				 * clientY 返回当事件被触发时，鼠标指针的垂直坐标。 
+				 * 
+				 */
+				areaDiv.onmousemove = function(event) {
+					//在IE8中,响应函数被触发时,浏览器不会传递事件对象
+					//在IE8及以下的浏览器中,是讲事件的对象作为window对象的属性保存的
+					//浏览器兼容性问题
+					if (!event) {
+						event = window.event;
+					};
+					var x = event.clientX;
+					var y = event.clientY;
+					showMsg.innerHTML = "X=" + x + ";" + "Y=" + y;
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<p>A:浏览测试区</p>
+		<div id="areaDiv"></div>
+		<p>B:显示数据区</p>
+		<div id="showMsg"></div>
+	</body>
+</html>

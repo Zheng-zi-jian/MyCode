@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件的委派</title>
+		<script>
+			window.onload = function() {
+				//获取所有的超链接a
+				var allA = document.getElementsByTagName("a");
+				//获取按钮(添加超链接)
+				var btn01 = document.getElementById("btn01");
+				//获取<ul></ul>
+				var ul = document.getElementById("ul");
+
+				// 为现有的每一个超链接绑定单击响应函数,
+				// for (var i = 0; i < allA.length; i++) {
+				// 	allA[i].onclick = function() {
+				// 		console.log("123");
+				// 	};};
+				// 且不能为新添加的超链接绑定单击响应函数, 此方法操作比较麻烦,
+
+				/* 
+				需求:只需要绑定一次事件,即可应用到多个元素上,包括新增加的.
+				解决方案:
+				把事件绑定给元素的共同的祖先元素
+				 - 将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时，
+				     会一直冒泡到祖先元素,从而通过祖先元素的响应函数来处理事件。
+				 - 事件委派是利用了冒泡，
+				     通过委派可以减少事件绑定的次数，提高程序的性能
+                 */
+				ul.onclick = function(event) {
+					//target  event中的target表示的触发事件的对象
+					if (event.target.className == "link") {
+						event = event || window.event;
+						console.log("123");
+					}
+				};
+				//添加新的超链接功能
+				btn01.onclick = function() {
+					var li = document.createElement("li");
+					li.innerHTML = "<a href='javascript:;' class='link'>超链接</a>";
+					ul.appendChild(li);
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<button id="btn01">添加超链接</button>
+		<ul id="ul">
+			<li><a href="javascript:;" class="link">超链接一</a></li>
+			<li><a href="javascript:;" class="link">超链接二</a></li>
+			<li><a href="javascript:;" class="link">超链接三</a></li>
+		</ul>
+	</body>
+</html>

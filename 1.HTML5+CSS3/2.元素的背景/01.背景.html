@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS 背景</title>
+		<style>
+			/*--背景--
+			1.背景区域的颜色:background-color: #00FFFF; 
+			
+			2.背景区域的图片:background-image: url(img/001.jpg);
+				(1)如果背景区域=图片大小，会直接正常显示
+				(2)如果背景区域>图片大小，图片会自动在背景中平铺将元素
+				(3)如果背景区域<图片大小，图片部分无法完全显示
+				
+			3.背景图的位置
+				设置方式一:
+					通过top left right bottom center几个方位词来表示
+					设置方位需要两个值,例如左上角(left top);若只有一个值,则第二个值默认center
+				设置方式二:
+					设置偏移量
+					例如:background-position:100px 100px;
+					
+			4.背景图的重复	
+				background-repeat: 用来设置背景的重复方式.
+					取值:
+						repeat    默认值(xy双方向重复)
+						no-repeat 不重复
+						repeat-x  X方向重复
+						repeat-y  Y方向重复
+			
+			5.背景裁剪属性
+				设置背景范围,background-clip:
+					padding-box    背景范围在内容和内边距
+					border-box     背景范围在边框下边
+					content-box    背景范围在内容区
+				
+				设置背景图片的偏移量计算的原点,background-origin:
+					border-box     从边框开始计算
+					padding-box    从内边距开始(默认值 )
+					content-box    从内容区计算
+					
+			6.背景图的大小和显示方式
+					设置背景图片固定大小:赋值方法多样 px  %
+						background-size: 200px 130px(50% 50%);
+					比例不变 元素铺满
+						background-size: cover;
+					比例不变 图片完全展示
+						background-size: contain;
+			7.背景属性的简写
+			    - backgound 背景相关的简写属性，所有背景相关的样式都可以通过该样式来设置
+			        并且该样式没有顺序要求，也没有哪个属性是必须写的
+			    注意：
+			         background-size必须写在background-position的后边，并且使用/隔开
+			         background-clip必须写在background-origin的后边
+			
+			8.固定背景
+			    background-attachment:;
+					scroll(默认值):
+						滚动背景,背景图的默认起始位置在盒子的左上,当页面移动时,盒子也跟着移动,背景图也会跟着移动
+					fixed:固定背景:
+						背景的参考点永远是浏览器窗口,只有给某个元素设置给背景图时,才能通过这个元素看到背景图
+			 */
+
+			body>div {
+				width: 48%;
+				padding: 5px;
+				margin: 5px;
+				display: flex;
+				float: left;
+			}
+
+			div {
+				border: 1px solid blue;
+				margin-left: 20px;
+			}
+
+			/* box1-box3背景区域大小与图片大小的对比 */
+			.box1,
+			.box2,
+			.box3 {
+				background-image: url(img/001.jpg);
+				width: 200px;
+				height: 153px;
+			}
+
+			.box2 {
+				width: 300px;
+			}
+
+			.box3 {
+				width: 100px;
+			}
+
+			/* box4-box6背景图片位置与重复 */
+			.box4,
+			.box5,
+			.box6 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				background-image: url(img/002.jpg);
+			}
+
+			.box4 {
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+
+			.box5 {
+				background-repeat: repeat-x;
+			}
+
+			.box6 {
+				background-repeat: repeat-y;
+			}
+
+			/* box7-box9背景图片的显示区域和计算原点 图片的大小  属性简写*/
+			.box7,
+			.box8,
+			.box9 {
+				width: 200px;
+				height: 200px;
+			}
+
+			.box7 {
+				border: 5px red double;
+				background-color: greenyellow;
+				background-image: url(img/003.png);
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				padding: 10px;
+				/* 
+				background-clip: padding-box;
+				background-clip: border-box; 
+				*/
+				background-clip: content-box;
+				/* 
+				background-origin: border-box;
+				background-origin: padding-box; 
+				*/
+				background-origin: content-box;
+			}
+
+			.box8 {
+				background-image: url(img/004.jpg);
+				background-repeat: no-repeat;
+				background-size: 200px 130px;
+				/* background-size: 50% 50%; */
+				background-size: cover;
+				/* background-size: contain; */
+			}
+
+			.box9 {
+				padding: 30px;
+				border: 5px red double;
+				background: url(img/003.png) #bfa center center/contain border-box content-box no-repeat;
+			}
+
+			.box10,
+			.box11,
+			.box12 {
+				width: 300px;
+				height: 200px;
+			}
+
+			/*
+				9.多重背景:
+					背景图可以多张,用逗号隔开,先写的会压在后写的上面
+			*/
+			.box10 {
+				background: url(./img/222.jpg) no-repeat, url(./img/atguigu.png) no-repeat 0 0, url(./img/bg.png) no-repeat 0 0;
+			}
+
+			/* 
+				10.黑白网页 
+			*/
+			.box11 {
+				filter: grayscale(100%);
+			}
+			
+			/* 
+				11.模糊网页
+					过滤器属性:blur: 盒子模糊程度,当盒子设置模糊属性后,连内容一起模糊
+			*/
+			.box12{
+				overflow: hidden;
+				position: relative;
+			}
+			.box12 img{
+				width: 100%;
+				height: 100%;
+				display: block;
+				filter: blur(15px); 
+			    transition: all 1s linear;
+				
+			}
+			.box12:hover img{
+				filter: blur(0px); 
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="box1"></div>
+			<div class="box2"></div>
+			<div class="box3"></div>
+		</div>
+		<div>
+			<div class="box4"></div>
+			<div class="box5"></div>
+			<div class="box6"></div>
+		</div>
+		<div>
+			<div class="box7"></div>
+			<div class="box8"></div>
+			<div class="box9"></div>
+		</div>
+		<div>
+			<div class="box10"></div>
+			<div class="box11">
+				<div style="color: #0000FF;">
+					彩色字体
+					<img src="img/222.jpg" />
+				</div>
+			</div>
+			<div class="box12">
+				<img src="./img/mm.jpg">
+			</div>
+		</div>
+	</body>
+</html>

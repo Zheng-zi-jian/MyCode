@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>相对定位</title>
+		<style>
+			/*
+		- 相对定位：
+		- 当元素的position属性值设置为relative时则开启了元素的相对定位
+		- 相对定位的特点：
+			1.元素开启相对定位以后，如果不设置偏移量元素不会发生任何的变化
+			2.相对定位是参照于元素在文档流中的位置进行定位的
+			3.相对定位会提升元素的层级
+			4.相对定位不会使元素脱离文档流
+			5.相对定位不会改变元素的性质块还是块，行内还是行内
+	    */
+			.box1 {
+				width: 100px;
+				height: 100px;
+				background-color: #bfa;
+			}
+
+			.box2 {
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+				position: relative;
+				left: 120px;
+				top: -80px;
+			}
+
+			.box3 {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</body>
+</html>

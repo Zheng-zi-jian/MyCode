@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				height: 500px;
+				border-bottom: 10px solid #000000;
+				margin-top: 50px;
+				overflow: hidden;
+			}
+
+			.box1 {
+				width: 100px;
+				height: 100px;
+				background-color: #008000;
+				border-radius: 50%;
+				animation: boll 3s ease-in forwards;
+			}
+
+			@keyframes boll {
+				from {
+					margin-top: 0;
+				}
+
+				25%,
+				75%,
+				to {
+					margin-top: 400px;
+					animation-timing-function: ease-in;
+				}
+
+				50% {
+					margin-top: 200px;
+					animation-timing-function: ease-out;
+				}
+
+				90% {
+					margin-top: 300px;
+					animation-timing-function: ease-out;
+				}
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1"></div>
+		</div>
+	</body>
+</html>

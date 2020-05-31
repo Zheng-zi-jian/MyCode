@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过渡</title>
+		<style>
+			/* --过渡--
+			 1.过渡的属性(可以指定多个有效的属性,属性之间用逗号隔开)
+				transition-property:;
+					属性值:
+						元素的属性,例如宽高 颜色.
+			 2.过渡的时间
+				transition-duration:;
+					属性值:
+						时间(单位秒s/毫秒ms;1秒=1000毫秒).
+			 3.过渡的延迟
+				transition-disabled:;
+					属性值:
+						时间(单位秒s/毫秒ms;1秒=1000毫秒).
+			 4.过渡的方式
+				transition-timing-function:;
+					属性值:
+					   transition-timing-function: ease;默认值
+					   transition-timing-function: linear 匀速
+					   transition-timing-function: ease-in加速运动;
+					   transition-timing-function: ease-out减速运动;
+					   transition-timing-function: ease-in-out 先加速再减速
+					   transition-timing-function: cublic-bezier() 自定义
+					   https://cubic-bezier.com
+			 5.过渡复合属性书写方法
+			 transition:过渡属性 过渡时间 过渡方式 延时(多个属性,需要分组写,用逗号隔开)
+				例子1.
+					transition: width 2s ease 1s;
+				例子2.
+					transition: width 2s ease 1s,height 2s ease 1s;
+				例子3.
+					 transition: all 2s ease 1s;
+					 transition-property: width,height,opacity,background-color;
+			 */
+			.outer {
+				width: 600px;
+				height: 600px;
+				background-color: #63A35C;
+			}
+
+			.box2 {
+				width: 100px;
+				height: 100px;
+				background-color: #00FFFF;
+				margin-bottom: 10px;
+				margin-left: 0;
+			}
+
+			.outer:hover .box2 {
+				transition-property: width, background-color;
+				transition-duration: 3s;
+				width: 150px;
+				background-color: #0000FF;
+			}
+
+			.box3,
+			.box4 {
+				width: 100px;
+				height: 100px;
+				background-color: #00FFFF;
+				margin-bottom: 10px;
+			}
+
+			.outer:hover .box3 {
+				margin-left: 500px;
+				transition-property: margin-left;
+				transition-duration: 3s;
+				transition-timing-function: ease;
+			}
+
+			.outer:hover .box4 {
+				margin-left: 500px;
+				transition-property: margin-left;
+				transition-duration: 3s;
+				transition-timing-function: linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="box2"></div>
+			<div class="box3">默认值,ease 先慢速 再快速,最后慢速</div>
+			<div class="box4">匀速,linear 全程匀速</div>
+		</div>
+	</body>
+</html>

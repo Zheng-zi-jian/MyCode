@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML 表单</title>
+	</head>
+	<body>
+		<!-- 
+		form 表单域
+			属性:
+				action: 手机信息提交给哪个文件处理
+				name 表单域的名称
+				method 传递信息的方法
+				method=‘get’ 默认值 通过浏览器的地址栏进行传递信息 post
+		label关联其他表单控件
+			属性:
+				for：值是要关联的表单控件的
+				ID:属性值
+		input相关属性:
+			1.禁用属性,
+				disabled (三种写法)
+			2.非空验证:
+				required (三种写法)
+				当表单提交时,如果输入框内容是空,会有提示信息,不能提交	
+			3.自动获取焦点:
+				autofoucs(三种写法)
+			4.自动补全
+				autocomplete off(默认值)
+				autocomplete on(要配合name属性使用,以组名的形式存储扯成功提交的历史记录)
+		 -->
+		<form action="../4.文字/01.字体.html" style="text-align: center;">
+
+			<!-- 文本框,注意 数据提交到服务器中 ,必须为元素指定一个name -->
+			<label for="name">姓名:</label>
+			<input id="name" type="text" name="use" value="" autocomplete="" disabled />
+			<br> <br>
+			<label for="id">账号:</label>
+			<input id="id" type="text" value="" required="" autocomplete="on" />
+			<br /><br />
+
+			<!-- 密码框 -->
+			<label for="password">密码:</label>
+			<input id="password" type="password" name="password" value="" />
+			<br /><br />
+
+			<!-- 邮箱 -->
+			<label for="email">邮箱:</label>
+			<input id="email" type="email" />
+			<br><br />
+
+			<!-- 网址类型 -->
+			网址类型:<input type="url">
+			<br><br />
+			
+			<!-- 数字类型 -->
+			数字类型:<input type="number">
+			<br><br />
+			
+			<!-- 本地时间 -->
+			本地时间:<input type="datetime-local">
+			<br><br />
+			
+			<!-- 月份 -->
+			月份:<input type="month">
+			<br><br />
+			
+			<!-- 天(几号) -->
+			天(几号):<input type="date">
+			<br><br />
+			
+			<!-- 时间 -->
+			时间:<input type="time">
+			<br><br />
+			
+			<!-- 周 -->
+			周:<input type="week">
+			<br><br />
+
+			<!--单选按钮-- value值会作为用户的值;checked设置为默认选中-->
+			<label>性别:</label>
+			<input type="radio" value="男" name="gender" checked="checked">男
+			<input type="radio" value="女" name="gender">女
+			<br /><br />
+
+			<!-- 多选按钮 -->
+			<label>爱好:</label>
+			<input id="C" value="抽烟" type="checkbox" />
+			<label for="C">抽烟</label>
+			<input id="H" value="喝酒" type="checkbox" />
+			<label for="H">喝酒</label>
+			<input id="T" value="烫头" type="checkbox" />
+			<label for="T">烫头</label>
+			<br /><br />
+
+			<!-- 下拉框1 -->
+			<label>学历:</label>
+			<select name="xueli">
+				<option value="" selected>本 科</option>
+				<option value="">专 科</option>
+				<option value="">研究生</option>
+				<option value="">高中及以下</option>
+			</select>
+			<br /><br />
+
+			<!-- 下拉框2 -->
+			<label>国籍:</label>
+			<select>
+				<optgroup label="亚洲">
+					<option>中国</option>
+					<option>日本</option>
+				</optgroup>
+				<optgroup label="美洲">
+					<option>美国</option>
+					<option>加拿大</option>
+				</optgroup>
+			</select>
+			<br /><br />
+			
+			<!-- 新增下拉菜单
+				 datelist 配合输入框使用,用输入框中的id属性关联文本框中的list属性
+			 -->
+			H5新增:<input type="text" list="car">
+			<datalist id="car">
+				<option>宝马</option>
+				<option>奔驰</option>
+				<option>奥迪</option>
+				<option>法拉利</option>
+			</datalist>
+			<br /><br />
+			
+			<!-- 文本域 -->
+			<label>自我介绍：</label>
+			<textarea col="30" rows="5"></textarea>
+			<br /><br />
+
+			<!-- 文件域 -->
+			<label>上传文件：</label>
+			<input type="file" />
+			<br /><br />
+
+			<!-- 颜色 -->
+			<label>颜色:</label>
+			<input type="color" /><!-- 兼容性差 -->
+			<br /><br />
+
+			<!-- 重置按钮 -->
+			<input type="reset" />
+			<button type="reset">重置</button>
+			<br /><br />
+
+			<!-- 提交按钮 -->
+			<input type="submit" />
+			<button type="submit">提交</button>
+			<br /><br />
+
+			<!-- 普通按钮 -->
+			<button type="button">按钮</button>
+			<br> <br>
+		</form>
+
+		<!--  自动补全开关
+		autocompltte   默认开启  0ff 关闭
+		-readonly  只读
+		-disabled  禁用
+		-autofocus 设置表单自动获取焦点-->
+	</body>
+</html>

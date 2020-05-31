@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数组的相关练习</title>
+    <script type="text/javascript">
+        //冒泡排序
+        var arr = [3,4,1,2,6,7,9,0,5,8];
+        console.log('排序前:'+arr);
+        // 排列次数的最大应该为数组的长度-1
+        for(var j=0; j<arr.length-1; j++){
+            //获取到数组中的每一个元素
+            for(var i=0; i<arr.length-1; i++){
+                //比较当前元素和后一个元素的大小
+                //当前元素 arr[i]  后一个元素arr[i+1]
+                // console.log(arr[i], arr[i+1]);
+                if(arr[i] > arr[i+1]){
+                    // 前边的元素大于后边的元素，交换两个元素的位置
+                    var temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    //[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+                }
+            }
+            console.log('排序后:'+arr);
+        }
+
+
+        //快速排序
+        var arr = [3,4,1,2,6,7,9,0,5,8];
+        //创建一个快速排序的函数
+        // 对array进行排序，返回一个排好序的新数组
+        function quickSort(array) {
+            //设置基线条件
+            if(array.length <= 1){
+                return array;
+            }
+
+            // 获取一个基准值，获取数组的最后一个元素作为基准值
+            var base = array[array.length-1];
+
+            //创建两个数组
+            var left = []; //左数组，存储小于base的元素
+            var right = []; //右数组，存储大于base的元素
+
+            //比较每个元素和base的大小
+            for(var i=0; i<array.length - 1; i++){
+                // 比较当前值和基准值的大小
+                if(array[i] < base){
+                    //放入到左数组
+                    left.push(array[i]);
+                }else{
+                    //放入到右数组
+                    right.push(array[i]);
+                }
+            }
+
+            //left base right
+            // 将left base right 拼接为一个数组返回
+            return quickSort(left).concat(base, quickSort(right));
+        }
+
+        var result = quickSort(arr);
+
+        console.log(arr+'原数组');
+        console.log(result+'快速排序后的数组');
+
+
+        //--数组的去重--去除数组中重复的数字
+        var arr0 = [1, 2, 3, 2, 2, 1, 3, 4, 2, 5];
+        for (var i = 0; i < arr0.length; i++) { //获取数组中的每一个元素
+
+            for (var j = i + 1; j < arr0.length; j++) { // 获取当前元素后的所有元素
+
+                if (arr0[i] == arr0[j]) { // 判断两个元素的值是否相等
+
+                    arr0.splice(j, 1);//如果相等则证明出现了重复的元素，则删除j对应的元素
+                    // 当删除了当前j所在的元素以后， 后边的元素会自动补位
+                    // 此时将不会在比较这个元素吧， 我需要在比较一次j所在位置的元素
+                    // 使j自减
+                    j--;
+                }
+            }
+        }
+        console.log(arr0);
+
+
+        // 练习:筛选适合的元素组成一个新的数组 创建函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        // 创建Person实例
+        var per1 = new Person("钱某某", 12);
+        var per2 = new Person("孙某某", 14);
+        var per3 = new Person("李某某", 16);
+        var per4 = new Person("周某某", 18);
+        var per5 = new Person("吴某某", 20);
+        var per6 = new Person("郑某某", 22);
+        // 把这些Person对象放进一个数组里
+        var perArr = [per1, per2, per3, per4, per5, per6];
+
+        // 定义一个函数,用来判断满足要求的元素,并存储到一个新的数组中
+        function getAdult(Arr) {
+            var newArr = [];
+            var index = 0;
+            for (var i = 0; i < Arr.length; i++) {
+                if (perArr[i].age >= 18) {
+                    newArr[index++] = Arr[i];
+                }
+            }
+            return newArr;
+        }
+
+        var result = getAdult(perArr);
+        console.log(result);
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>俄罗斯方块</title>
+		<style>
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: #ADFF2F;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				document.onkeydown = function(event) {
+					event = event || window.event;
+					var speed = 10;
+					if(event.ctrlKey){
+						speed=200;
+					}
+					switch (event.keyCode) {
+						case 37:
+							box1.style.left = box1.offsetLeft - speed + "px";
+							break;
+						case 39:
+							box1.style.left = box1.offsetLeft + speed + "px";
+							break;
+						case 38:
+							box1.style.top = box1.offsetTop - speed + "px";
+							break;
+						case 40:
+							box1.style.top = box1.offsetTop + speed + "px";
+							break;
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+	</body>
+</html>

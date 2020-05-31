@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+#total {
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.inner {
+	width: 400px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+}
+
+#employeeTable {
+	border-spacing: 1px;
+	background-color: black;
+	margin: 20px auto 10px auto;
+}
+
+#employeeTable tr>td>a{
+	text-decoration:none;
+	color: #ADFF2F;
+}
+th,td {
+	background-color: white;
+}
+
+#formDiv {
+	width: 250px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 20px auto 10px auto;
+	padding: 10px;
+}
+#formDiv h4 {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+}
+
+
+#formDiv input {
+	width: 100%;
+}
+
+.word {
+	width: 40px;
+}
+
+.inp {
+	width: 200px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			body>ul{
+				width: 600px;
+				border: 2px solid orange;
+				display: flex;
+				float: left;
+				margin: 20px 70px;
+			}
+			ul>li {
+				width: 100px;
+				height: 100px;
+				border: 1px solid pink;
+				line-height: 100px;
+				text-align: center;
+				background-color: #BBFFAA;
+				font-size: 50px;
+			}
+			/* 弹性元素在容器中水平(自左向右)排列 */
+			body ul:nth-of-type(1){
+				flex-direction: row;
+			}
+			/* 弹性元素在容器中水平(自右向左)排列 */
+			body ul:nth-of-type(2){
+				flex-direction: row-reverse;
+			}
+			/* 弹性元素在容器内垂直(自上向下)排列 */
+			body ul:nth-of-type(3){
+				height: 540px;
+				flex-direction: column;
+			}
+			/* 弹性元素在容器内垂直(自下向上)排列 */
+			body ul:nth-of-type(4){
+				height: 540px;
+				flex-direction: column-reverse;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+</html>

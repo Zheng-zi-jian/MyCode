@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS的简介及语法</title>
+		<!--使用css修改元素的样式
+			 第一种方式：内联样式（行内样式）
+			 优点：级别高
+			 缺点：只能修改一个标签，不方便后期维护，开发时杜绝使用
+			 
+        	 第二种方式：(内部样式表)，将样式写到head的style标签里
+        	 优点：方便后期维护，更加方便重复使用
+        	 缺点：只能对一个网页起作用，不能跨页面进行复用
+        	 
+        	 第三种方式：外部样式表（最佳使用方法），可以将css样式编写到一个外部css文件中
+        	     然后通过link标签来引入css文件
+        	     将样式编写到外部css文件，可以使用到浏览器的缓存机制
+        	     从而可以加快网页的加载速度
+        -->
+        <style>
+        	#neibu{
+        		color: crimson;
+        	    font-size: 23px;
+        	}      	
+        </style>
+        <link rel="stylesheet" href="../0.File/1.Reset/3.1.css" />
+	</head>
+	<body>
+         <p style="color: blueviolet; font-size: 20px;">
+			第一种样式（行内样式）
+		 </p>
+         <p id="neibu">第二种样式（内部样式）</p>
+         <p id="waibu">第三种样式（外部样式）</p>
+	</body>
+</html>

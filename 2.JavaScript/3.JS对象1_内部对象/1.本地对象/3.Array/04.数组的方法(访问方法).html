@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的方法(不会影响原数组)</title>
+    <script>
+        /* 访问方法:下面的这些方法绝对不会改变调用它们的对象的值，只会返回一个新的数组或者返回一个其它的期望值。 */
+        var arr0 = ["A", "B", "C", "D", "E", "F"];
+        var arr1 = ["A", "B", "C"], arr2 = ["D", "E", "F"], arr3 = ["二郎神", "太上老君", "玉皇大帝"];
+        var arr4 = ['a', 'c', 'b', 'd', 'e', 'f', 'a', 'a'];
+
+        /* 一、
+         *   Array.prototype.concat();
+         *      作用:   可以连接两个或多个数组，并将新的数组返回.
+         *      参数:   (1)需要拼接的数组;(2)需要添加的元素;
+         *      返回值:  拼接的新的数组
+         */
+        var result = arr1.concat(arr2, "哈哈"); //拼接数组arr1和arr2,并添加一个元素;
+        console.log(result + '');//打印结果 [A,B,C,D,E,F,哈哈]
+
+
+        /* 二、
+         *   Array.prototype.join();
+         *      作用:   将数组转换为一个字符串. 将转换后的字符串作为结果返回.
+         *      参数:   可以自定义数组中元素的连接符;默认使用","作为连接符.
+         * 	    返回值: 数组转换为的字符串.
+         */
+        result = arr3.join("@"); //将数组中的元素拼接为字符串
+        console.log(result); //打印结果  二郎神@太上老君@玉皇大帝
+
+
+        /* 三、
+         *   Array.prototype.slice()
+         *      作用:抽取当前数组中的一段元素(指定元素)组合成一个新数组。
+         * 	    参数：
+         * 		    (1)第一个参数,截取开始的位置的索引,包含开始索引.
+         * 		    (2)第二个参数,截取结束的位置的索引,不包含结束索引.
+         * 		            第二个参数可以省略不写,此时会截取从开始索引往后的所有元素.
+         * 		    (3)索引可以传递一个负值，如果传递一个负值，则从后往前计算
+         * 			      -1 倒数第一个;-2 倒数第二个
+         * 		返回值: 抽取的元素组合成一个新数组.
+         */
+        console.log(arr0.slice(1, 3));  //从索引为1的元素开始截取到索引为3的元素前,返回结果["B", "C"]
+        console.log(arr0.slice(3));     //从索引为3的元素开始截取到最后,返回结果["D", "E", "F"]
+        console.log(arr0.slice(1, -2)); //从索引为1的元素开始截取到倒数第二个元素前,返回结果["B", "C", "D"]
+
+
+        /* 四、
+         *    indexOf();     - 查询元素在数组中第一次出现的位置(正序)
+         *    lastIndexOf(); - 查询元素在数组中第一次出现的位置(倒序)
+         *       参数：
+         *          (1)第一个，要查询的元素.
+         *          (2)第二个，查询的起始位置.
+         *       返回值：
+         *          如果找到了元素，则返回元素第一次出现的索引;
+         *          如果没有找到元素，则返回-1;
+         */
+        result = arr4.indexOf('b', 1);  //正序,从索引为1开始查找元素b.
+        console.log(result); // 第一次出现元素b的索引为2.
+        result = arr4.indexOf('g', 1);  //正序,从索引为1开始查找元素g.
+        console.log(result);//  未找到g  返回-1
+        result = arr4.lastIndexOf('a',2);  //倒序,从索引为2开始查找元素a.
+        console.log(result);// 倒序从索引为2的元素开始查找第一次出现元素的索引为0.
+
+        /*  --其他方法--
+        *    Array.prototype.includes()
+        *    判断当前数组是否包含某指定的值，如果是返回 true，否则返回 false。
+        *    Array.prototype.toSource()
+        *    返回一个表示当前数组字面量的字符串。遮蔽了原型链上的 Object.prototype.toSource() 方法。
+        *    Array.prototype.toString()
+        *    返回一个由所有数组元素组合而成的字符串。遮蔽了原型链上的 Object.prototype.toString() 方法。
+        *    Array.prototype.toLocaleString()
+        *    返回一个由所有数组元素组合而成的本地化后的字符串。遮蔽了原型链上的 Object.prototype.toLocaleString() 方法。
+        */
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
