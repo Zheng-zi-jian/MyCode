@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则的方法</title>
+		<script>
+			/*	一、
+			 *	test();
+			 * 		作用:
+			 * 			用来检查一个字符串是否符合正则表达式的要求.
+			 *		语法:
+			 * 			RegExp.test(String);
+			 * 		返回值:
+			 * 			布尔值
+			 */
+			reg = new RegExp('a');     //创建一个正则表达式
+			result = reg.test('abcd'); //使用正则表达发检查一个字符串是否符合正则标准,并返回结果
+			console.log(result);	   //打印结果
+
+
+			/*	二、
+			 *  split();
+			 * 		作用:
+			 * 			将一个字符串拆分为一个数组.
+			 * 		语法:
+			 * 			String.split(RegExp)
+			 * 		参数:
+			 * 			传递一个正则表达式作为参数，将会根据正则表达式去拆分字符串;这个方法即使不指定全局匹配，也会全都拆分
+			 */
+			var str = "1a2b3c";
+			result = str.split(/[A-z]/); //根据任意字母来将字符串拆分
+			console.log(result);			 //["1", "2", "3", ""]
+
+			/*  三、
+			 *  search();
+			 * 		作用:
+			 * 			搜索字符串中是否含有指定内容.只会查找第一个，即使设置全局匹配也没用
+			 * 		语法:
+			 * 			String.search(RegExp);
+			 * 		参数:
+			 * 			接受一个正则表达式作为参数，然后会根据正则表达式去检索字符串
+			 * 		返回值:
+			 * 			如果搜索到指定内容，则会返回第一次出现的索引
+			 * 			如果没有搜索到返回-1
+			 */
+			str1 = "hello abc hello aec afc";
+			result = str1.search(/a[ef]c/);	//搜索字符串中是否含有aec 或 afc
+			console.log(result);            //16
+
+			/*	四、
+			 *  match();
+			 * 		作用:
+			 * 			根据正则表达式，从一个字符串中将符合条件的内容提取出来
+			 * 		语法:
+			 * 			String.match(RegExp);
+			 * 		参数:
+			 * 			接受一个正则表达式作为参数，然后会根据正则表达式去提取
+			 * 		返回值:
+			 * 			会将匹配到的内容封装到一个数组中返回，即使只查询到一个结果
+			 * 				默认情况下我们的match只会找到第一个符合要求的内容，找到以后就停止检索
+			 * 				我们可以设置正则表达式为全局匹配模式，这样就会匹配到所有的内容
+			 * 				可以为一个正则表达式设置多个匹配模式，且顺序无所谓
+			 */
+			str2 = "1a2a3a4a";
+			result = str2.match(/[a-z]/ig);
+			console.log(result);			//aaaa
+
+			/**
+			 *  五、
+			 *	exec();   !!!是正则表达式的方法
+			 *		作用:用来从字符串中匹配内容
+			 *			同时exec() 一次只会匹配一个结果，即使你设置全局匹配
+			 */
+			// 编写正则表达式，提取出字符串中图片的路径
+			str = `<div>
+					   <h2>HTML DOM 树</h2>
+					   <img src="/i/ct_htmltree.gif" alt="HTML DOM Node Tree" />
+				   </div>`;
+			Reg = /src="(.+?)"/;
+			result = Reg.exec(str);
+			console.log(result);
+
+			/*	六、
+			 *  replace();
+			 * 		作用:
+			 * 			将字符串中指定内容替换为新的内容,默认只会替换第一个
+			 * 		语法:
+			 * 			String.replace(RegExp , "");
+			 *   	参数：
+			 * 			参数1:被替换的内容，可以接受一个正则表达式作为参数
+			 * 			参数2:新的内容
+			 */
+		    str = "1a2b3C4D";
+			result = str.replace(/[a-z]/gi , "@");
+			console.log(result); 	//1@2@3@4@
+			result = str.replace(/[a-z]/gi, "");
+			console.log(result);	//1234
+
+			//去除空格
+			var str = "   he  llo    ";
+			str1 = str.replace(/\s/g, "");  	   // "hello"		 去除掉字符串中的前后的空格,去除空格就是使用""来替换空格.
+			str2 = str.replace(/^\s*/, ""); 	   // "he  llo    "  去除开头的空格
+			str3 = str.replace(/\s*$/, ""); 	   // "   he  llo"	 去除结尾的空格
+			str4 = str.replace(/^\s*|\s*$/g, "");  // "he  llo" 	 去除开头和结尾的空格
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM查询-获取元素节点的属性节点</title>
+    <style>
+        div{
+            width: 600px;
+            margin: 0px auto;
+        }
+    </style>
+    <script>
+    /*
+    * 读取元素节点属性.  直接使用 元素.属性名
+	* 			例子：元素.id 元素.name 元素.value
+	* 			注意：class属性不能采用这种方式，读取class属性时需要使用 元素.className
+    */
+        function myClick(idStr, fun) {
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+        window.onload = function() {
+
+            //设置#username的value属性值
+            myClick("btn9", function() {
+                var um = document.getElementById("username");
+                um.value = "郑子健";
+            })
+
+            //读取#username的value属性值
+            myClick("btn10", function() {
+                var um = document.getElementById("username");
+                alert(um.value);
+            })
+
+            //返回#bj的文本值
+            myClick("btn11", function() {
+                var bj = document.getElementById("bj");
+                alert(bj.innerText);
+            })
+        };
+    </script>
+
+</head>
+<body>
+<div class="inner">
+    <h1>DOM查询-获取元素的属性节点</h1>
+    <p>你喜欢哪个城市?</p>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    gender:
+    <input class="hello" type="radio" name="gender" value="Male"/>Male
+    <input class="hello" type="radio" name="gender" value="Female"/> Female
+    <br>
+    <br>
+    name:
+    <input id="username" type="text" name="name"  value="ABCDE"/>
+    <br>
+    <button id="btn9">设置#username的value属性值为"郑子健"</button>
+    <button id="btn10">读取#username的value属性值</button>
+    <button id="btn11">返回#bj的文本值</button>
+</div>
+</body>
+</html>

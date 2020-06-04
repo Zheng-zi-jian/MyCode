@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的属性</title>
+    <script>
+        /*
+        * 1.向对象中添加属性
+        *    语法：对象.属性名 = 属性值;
+        *         (1)属性名: 对象的属性名没有强制的命名规范，但是我们开发中属性名也要遵循标识符的规范.如果要使用特殊的属性名，使用：
+        *         (2)属性值: 对象的属性值,可以是任意的数据类型 ,甚至也可以是一个对象.
+        *                正常:
+        *                    obj.name = "孙悟空";
+        *                    obj.test = true;
+        *                    obj.test = undefined;
+        *                    obj.test = {}; // test属性值是对象
+        *                特殊:
+        *                    对象["属性名"] = 属性值
+        *                    obj["123"] = 789;
+        *                    obj["nihao"] = "你好";
+        * 2.读取对象中的属性
+        *    语法：对象.属性名
+        *        如果读取对象中没有的属性，不会报错而是会返回undefined
+        *
+        * 3.修改属性
+        *    语法：对象.属性名 = 新值
+        *
+        * 4.删除属性
+        *    语法：delete 对象.属性名
+        */
+        var obj = new Object(); //创建对象
+        obj.name = "孙悟空";     //添加属性
+        console.log(obj.name);  //读取属性 返回 孙悟空
+        obj.name = "tom";       //修改属性
+        console.log(obj.name);  //读取属性 返回 tom
+        delete obj.name;        //删除属性
+
+        /* 5.枚举对象中的属性
+         *   语法：使用for ... in 语句
+         * 	      for(var 变量 in 对象){}
+         *   对象中有几个属性，循环体就会执行几次.每次执行时，会将对象中的一个属性的名字赋值给变量
+         */
+        var obj1 = {
+            name: "孙悟空",
+            age: 18,
+            gender: "男",
+            address: "花果山"
+        };
+        for (var n in obj1) {
+            console.log("属性名:" + n);
+        }
+
+        /* 6.检查一个对象中是否含有指定的属性(in 运算符)
+         *   语法： "属性名" in 对象
+         * 	 通过该运算符可以检查一个对象中是否含有指定的属性
+         * 	     如果有则返回true，没有则返回false
+         */
+        console.log("test" in obj1);  // false 检查obj中是否含有test属性
+        console.log("name" in obj1);  // true  检查obj中是否含有name属性
+    </script>
+</head>
+<body>
+
+</body>
+</html>l

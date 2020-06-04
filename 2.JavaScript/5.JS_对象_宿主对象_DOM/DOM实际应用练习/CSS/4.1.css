@@ -1,0 +1,31 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+#total,
+#btnList{
+    display: inline-block;
+    float: left;
+    margin: 100px;
+}
+
+#total{
+    margin-left: 500px;
+}
+
+#city li{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    background-color: #63A35C;
+    text-align: center;
+    margin-bottom: 6px
+}
+
+#btnList div{
+    width: 250px;
+    margin-bottom: 10px;
+}
