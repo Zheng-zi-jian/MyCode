@@ -1,0 +1,173 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加删除记录练习</title>
+    <style>
+        h3, h2 {
+            text-align: center;
+        }
+
+        #formDiv {
+            width: 250px;
+            margin: 5px auto;
+        }
+
+        #employeeTable {
+            border-spacing: 1px;
+            background-color: black;
+            margin: 10px auto;
+        }
+
+        th, td {
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        //删除tr的单击响应函数
+        function DelA() {
+            var tr = this.parentNode.parentNode;        //this  在响应函数中就是指触发的对象
+            var name = tr.getElementsByTagName("td")[0].innerHTML;//获取要删除员工的name
+            var res = confirm("是否删除" + name + "的信息" + "?");// 删除前的提醒
+            if (res) {//判断是否删除
+                tr.remove();
+            }
+            return false;//取消默认行为
+        }
+
+        window.onload = function () {
+            /* 删除员工信息 */
+            var allA = document.getElementsByTagName("a");//获取所有的超链接(delete)
+            for (var i = 0; i < allA.length; i++) {		  //为每一个超链接(delete)绑定单击响应函数
+                allA[i].onclick = function () {
+                    var tr = this.parentNode.parentNode;  //this的指向allA[i];在响应函数中就是指触发的对象
+                    //设置删除确认
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;	//获取要删除员工的name
+                    //confirm() 弹出一个带有(确认和取消)的警告框  返回一个布尔值
+                    var res = confirm("是否删除" + name + "的信息" + "?");	// 删除前的提醒
+                    if (res) {			// 判断是否删除
+                        tr.remove();  	// 删除
+                    }
+                    //超链接在被触发会默认跳转页面,如使其不跳转可通过在响应函数的最后  teturn  false 取消默认行为
+                    return false;
+                }
+            }
+
+            /* 添加员工信息 */
+            var addEmpButton = document.getElementById("addEmpButton");  //为提交按钮绑定单击响应函数
+            addEmpButton.onclick = function () {
+                //第一步:获取员工填写信息
+                var name = document.getElementById("empName").value; //-获取员工的名字
+                var email = document.getElementById("email").value;  //-获取员工的Email
+                var Salary = document.getElementById("salary").value;//-获取员工的Salary
+
+                //第二步:将采集到的信息文本添加到tr中
+                var tr = document.createElement("tr");//-创建一个<tr></tr>
+                var nameTd = document.createElement("td");//-创建四个<td></td>
+                var emailTd = document.createElement("td");
+                var salaryTd = document.createElement("td");
+                var aTd = document.createElement("td");
+                var a = document.createElement("a");//-创建第四个Td内的<a></a>
+                var nameText = document.createTextNode(name); //-创建文本节点
+                var emailText = document.createTextNode(email);
+                var salaryText = document.createTextNode(Salary);
+                var delTest = document.createTextNode("Delete");
+
+                //第三步将文本添加到td中
+                nameTd.appendChild(nameText);
+                emailTd.appendChild(emailText);
+                salaryTd.appendChild(salaryText);
+                a.appendChild(delTest);
+                aTd.appendChild(a);
+
+                //第四步将td添加到tr中
+                tr.appendChild(nameTd);
+                tr.appendChild(emailTd);
+                tr.appendChild(salaryTd);
+                tr.appendChild(aTd);
+
+                //第五步:添加属性
+                a.href = "javascript:;";    //向a中添加href属性
+                a.onclick = DelA;   //为新添加的a再绑定一次单击响应函数
+
+                //第六步:检查是否为空
+                if (name == "" && email == "" && Salary == "") {
+                    alert("请输入信息!!!")
+                } else {
+                    //第七步将tr添加到tbody
+                    //获取table
+                    var employeeTable = document.getElementById("employeeTable");
+                    //获取employeeTable中的tbdoy
+                    var tbody = employeeTable.getElementsByTagName("tbody")[0];
+                    //将tr添加到tbody中
+                    tbody.appendChild(tr);
+                }
+                //第七步: 清空
+                (function () {
+                    document.getElementById("empName").value = null;
+                    document.getElementById("email").value = null;
+                    document.getElementById("salary").value = null;
+                })();
+            };
+        }
+    </script>
+</head>
+<body>
+<h2>添加新员工</h2>
+<div id="formDiv">
+    <table>
+        <tr>
+            <td class="word">姓名:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">邮箱:</td>
+            <td class="inp">
+                <input type="text" name="email" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">薪水:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <button id="addEmpButton" value="abc">添加</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<table id="employeeTable">
+    <thead><h3>职员信息表</h3></thead>
+    <tr>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>薪水</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="javascript:;">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>

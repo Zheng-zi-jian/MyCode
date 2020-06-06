@@ -1,0 +1,46 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.outer{
+	width: 800px;
+	height: 400px;
+	margin:160px auto;
+}
+.left{
+	display: inline-block;
+	width:300px;
+	margin-right: 100px;
+	position: relative;
+	top: -10px;
+}
+
+.left .inner p{
+	font-weight: bold;
+}
+
+.left .inner ul{
+	display: flex;
+	margin-bottom:25px;
+}
+
+
+.left .inner li{
+	border: solid 1px darkgray ;
+	background-color: #99ff99;
+	margin: 10px 10px;
+	text-align: center;
+}
+
+#btnList {
+	height: 300px;
+	display: inline-block;
+}
+
+#btnList button {
+	width: 300px;
+	margin-bottom: 10px;
+}
+
