@@ -1,0 +1,144 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>全选练习</title>
+    <script>
+        window.onload = function () {
+            //获取四个itmes
+            var items = document.getElementsByName("items");
+
+
+            //全选:获取全选checkedAllBtn按钮
+            var checkedAllBtn = document.getElementById('checkedAllBtn');
+            checkedAllBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = true;
+                }
+
+                checkedAllBox.checked = true;//将全选/全不选设置为选中
+            }
+
+
+            //全不选:获取全不选checkedNoBtn按钮
+            var checkedNoBtn = document.getElementById('checkedNoBtn');
+            checkedNoBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = false;
+                }
+                checkedAllBox.checked = false;//将全选/全不选设置为未选中
+            }
+
+
+            //反选:获取反选checkedRevBtn按钮
+            var checkedRevBtn = document.getElementById('checkedRevBtn');
+            checkedRevBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    /*方式一:
+                     if (items[i].checked) {
+                         items[i].checked = false;
+                     } else {
+                         items[i].checked = true;
+                     } */
+                    //方式二:
+                    items[i].checked = !items[i].checked; //取反
+                }
+                checkedAllBox.checked = [...items].every(a => a.checked);
+            }
+
+
+            //(全选/全不选)  获取全选/全不选checkedAllBox按钮
+            var checkedAllBox = document.getElementById('checkedAllBox');
+            checkedAllBox.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    //this 执向checkedAllBox;如果所有items的checked是true,则this的checked是true
+                    items[i].checked = this.checked;
+                }
+            }
+
+
+            //判断四个items
+            // for (var i = 0; i < items.length; i++) {
+            //     items[i].onclick = function () {
+            //         //方式一
+            //         checkedAllBox.checked = true;              //将全选/全不选设置为选中状态
+            //         for (var j = 0; j < items.length; j++) {   //创建for循环一个一个判断四个多选框是否全选/不全选
+            //             if (!items[j].checked) {
+            //                 checkedAllBox.checked = false;     //有一个单选框没选中则就不是全选
+            //                 break;
+            //             }
+            //         }
+            //     }
+            // }
+
+            //方式二
+            for (var i = 0; i < items.length; i++) {
+                items[i].onclick = function () {
+                    checkedAllBox.checked = [...items].every(a => a.checked);
+                }
+            }
+
+            //方式三
+            // for (var i = 0; i < items.length; i++) {
+            //     items[i].onclick = function () {
+            //         //检查四个多选框是否全选
+            //         var checked = document.querySelectorAll('[name=items]:checked');
+            //         var isAllChecked = items.length === checked.length;
+            //         checkedAllBox.checked = isAllChecked;
+            //     }
+            // }
+
+
+            //sendBtn提交 :弹出选中按钮   获取提交sendBtn按钮
+            var sendBtn = document.getElementById('sendBtn');
+            sendBtn.onclick = function () {
+                // 方法一:
+                var istrue = true;  //判断items是否选中，如果选中则打印items
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].checked) {
+                        istrue = false;  //如果程序进入了判断 ,则就是有items值为false,则istrue = false;
+                        alert(items[i].value);
+                    }
+                }
+                if (istrue) {
+                    alert('空'); // 如果所有的items都没选中，如何弹出一个提示信息
+                }
+                // 方法二:
+                // (1)检查items中是否所有元素都没被选中(items中所有checked属性都为false)
+                //      every() 用来检查数组中的每一个元素是否都符合条件
+                //      some()  用来检查数组中是否有元素符合条件
+                //      由于items不是一个数组对象，所以无法使用every() 和 some() 方法
+                // (2)如何将items转换为数组对象, 通过对类数组对象解构，将其转换为一个数组对象
+                //  var itemsArr = [...items];
+                //  var resutl = itemsArr.every(a=>!a.checked);
+                //  alert(resutl);
+
+                // 方法三:
+                // if ([...items].every(a => !a.checked)) {
+                //     alert('没有多选框被选中！');// 进入判断证明四个多选框都没选中
+                // }
+            }
+        }
+    </script>
+</head>
+<body>
+<form method="post" action="" style="text-align: center;margin-top: 200px ">
+    你爱好的运动是？
+    <input type="checkbox" id="checkedAllBox"/>全选/全不选
+    <br>
+    <br>
+    <br>
+    <input type="checkbox" name="items" value="足球"/>足球
+    <input type="checkbox" name="items" value="篮球"/>篮球
+    <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+    <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+    <br>
+    <br>
+    <br>
+    <input type="button" id="checkedAllBtn" value="全　选"/>
+    <input type="button" id="checkedNoBtn" value="全不选"/>
+    <input type="button" id="checkedRevBtn" value="反　选"/>
+    <input type="button" id="sendBtn" value="提　交"/>
+</form>
+</body>
+</html>
