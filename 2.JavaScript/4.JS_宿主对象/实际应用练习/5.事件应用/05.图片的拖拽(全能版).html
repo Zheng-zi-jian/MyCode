@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>事件的实际应用-拖拽</title>
+    <style>
+        div {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+        }
+
+        #box1 {
+            background-color: #ADFF2F;
+        }
+
+        #box2 {
+            background-color: blue;
+            top: 120px;
+            left: 120px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //偏移值,声明提前(放在全局作用域中)
+            var left, top;
+            //声明一个变量,储存被移动的对象.
+            var dragEvent = null;
+            //监听鼠标的按下
+            document.addEventListener('mousedown', function (event) {
+                //判断是否为准备拖拽的图片 且 是否为鼠标左键
+                // if (event.target.className === "drag" && event.button == 0) {
+                if (event.target.classList.contains('drag') && event.button == 0) {
+
+                    //取消默认行为
+                    event.preventDefault();
+                    //对储存被移动的对象进行赋值为正在点击的图片
+                    dragEvent = event.target;
+                    //鼠标在图片中的水平偏移量
+                    left = event.offsetX;
+                    //鼠标在图片中的垂直偏移量
+                    top = event.offsetY;
+                }
+            }, false)
+            //监听鼠标的移动
+            document.addEventListener('mousemove', function (event) {
+                //如果dragEvent不为空,判断为true,则判断为鼠标移动
+                if (dragEvent) {
+                    //设置偏移量,保证鼠标位置,在图片内不跳动
+                    dragEvent.style.left = event.clientX - left + "px";
+                    dragEvent.style.top = event.clientY - top + "px";
+                }
+            }, false);
+            //监听鼠标的抬起
+            document.addEventListener('mouseup', function () {
+                //如果dragEvent为空,则取消事件
+                dragEvent = null;
+            }, false);
+        };
+    </script>
+</head>
+<body>
+一段文字
+<div id="box1" class="drag"></div>
+<div id="box2" class="drag"></div>
+</body>
+</html>

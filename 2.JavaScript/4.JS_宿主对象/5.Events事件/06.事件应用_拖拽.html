@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>事件的实际应用-拖拽</title>
+    <style>
+        div {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+        }
+
+        #box1 {
+            background-color: #ADFF2F;
+        }
+
+        #box2 {
+            background-color: blue;
+            top: 120px;
+            left: 120px;
+        }
+    </style>
+    <script>
+        /* 拖拽的流程:1.鼠标按下onmousedown;  2.鼠标移动onmousemove;  3.鼠标松开onmouseup; */
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            //鼠标按下,准备开始拖拽
+            box1.onmousedown = function (event) {
+                //鼠标在div内偏移量   鼠标位置 -  元素相对于父元素的偏移量
+                //鼠标在div内的偏移量 鼠标.clientX - 元素.offsetLeft
+                //鼠标在div内的偏移量 鼠标.clientY - 元素.offsetTop
+                var ol = event.clientX - box1.offsetLeft;
+                var ot = event.clientY - box1.offsetTop;
+                //补充(新): offsetX  offsetY   在这直接相当于 ol ot
+
+                //鼠标移动时,被拖拽元素跟随鼠标移动
+                document.onmousemove = function (event) {
+                    //获取鼠标坐标
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+                    //修改鼠标的位置
+                    box1.style.left = left + "px";
+                    box1.style.top = top + "px";
+                };
+
+                //为元素绑定鼠标松开事件
+                document.onmouseup = function () {
+                    document.onmousemove = null; //取消鼠标移动
+                    document.onmouseup = null;  //取消鼠标松开
+                };
+                return false;//取消默认行为
+            };
+        };
+    </script>
+</head>
+<body>
+一段文字
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

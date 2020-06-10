@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>冒泡的简介及实例练习</title>
+		<style>
+			#box0,
+			#box00{
+				width: 200px;
+				height: 200px;
+				background-color: #f10505;
+			}
+			#box1,
+			#box11 {
+				width: 150px;
+				height: 150px;
+				background-color: yellow;
+			}
+			#box2,
+			#box22 {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+		</style>
+
+		<script type="text/javascript">
+				/*
+				 * 事件的冒泡（Bubble）
+				 * 	(1)冒泡指的就是事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发
+				 * 	(2)在开发中大部分情况冒泡都是有用的,如果不希望发生事件冒泡可以通过事件对象来取消冒泡
+				 * 		取消(阻止)冒泡:
+				 * 			event.cancelBubble = true;
+				 * 			event.stopPropagation();
+				 * 	(3) 冒泡只和网页的结构有关和表现无关
+				 */
+			window.onload = function() {
+				var box0 = document.getElementById("box0");
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+
+				box0.onclick = function(event) {
+					alert("我是box0");
+				};
+
+				box1.onclick = function(event) {
+					alert("我是box01");
+				};
+
+				box2.onclick = function(event) {
+					alert("我是box02");
+				};
+
+
+				var box00 = document.getElementById("box00");
+				var box11 = document.getElementById("box11");
+				var box22 = document.getElementById("box22");
+				box00.onclick = function(event) {
+					alert("我是box00");
+					event.cancelBubble = true;
+				};
+
+				box11.onclick = function(event) {
+					alert("我是box11");
+					event.cancelBubble = true;
+				};
+
+				box22.onclick = function(event) {
+					alert("我是box22");
+					event.cancelBubble = true;
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<p>冒泡</p>
+		<div id="box0">
+			box0
+			<div id="box1">
+				box1
+				<div id="box2">
+					box2
+				</div>
+			</div>
+		</div>
+		<p>取消冒泡</p>
+		<div id="box00">
+			box00
+			<div id="box11">
+				box11
+				<div id="box22">
+					box22
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

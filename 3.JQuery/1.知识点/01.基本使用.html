@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="../0.File/jquery.min.js"></script>
+		<script>
+			//$(function(){});相当于window.onloca = function(){};
+			$(function() {
+				/* --jQuery的基本使用--
+			     1. $相当于jQuery  在代码中可以使用jQuery代替$  
+				 2. $是jQuery的顶级对象,相当于原生JS中的window. 
+				    把元素利用$包装成jQuery对象,就可以直接调用jQuery的方法.
+				*/
+				//$('div').hide();
+
+
+				/* --jQuery对象和DOM对象--
+				 1. 用原生JS获取的对象,就是DOM对象
+				 2. 用jQuery方法获取的元素,就是jQuery对象
+				 3. jQuery对象的本质:利用$对DOM对象包装后产生的对象(伪数组形式储存)
+				 4. (易错点)jQuery对象使用jQuery方法.;DOM对象使用原生JS属性和方法;
+				 */
+				// DOM对象
+				var mydiv = document.querySelector('div');
+				//jQuery对象
+				$('div');
+
+
+				/* --jQuery对象和DOM对象相互转化-- 
+				 1. 当jQuery对象不能满足我们的需求时,可以将jQuery对象转换为DOM对象
+				 2. (1)将DOM对象转换为jQuery对象
+				       语  法:$(DOM对象)
+					(2)将jQuery对象转换为DOM对象
+					   语法一:$(jQuery对象)[index]       index时索引号
+					   语法二:$(jQuery对象).get(index)   index时索引号
+				 */
+				//(1)获取DOM对象,并将DOM对象转换为jQuery对象.
+				var myvideo = document.querySelector('video');
+				$(myvideo);
+
+				//(2)获取jQuery对象,并将jQuery对象转换为DOM对象
+				$('video');
+				$('video')[0].play();
+				$('video').get(0).play();
+			});
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<video src="../0.File/我爱你中国.mp3" controls></video>
+	</body>
+</html>

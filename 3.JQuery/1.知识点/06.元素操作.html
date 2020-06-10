@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素操作</title>
+		<script src="../0.File/jquery.min.js"></script>
+		<script>
+			$(function() {
+				/* 一、---遍历元素,给同一类元素做不同的操作---
+				1. 语法一:$('div').each(function (infex,domEle) {xxx};
+				2. each()方法遍历匹配的每一个元素,主要用DOM处理.each每一个.
+				3. 里面的回调函数有两个参数:
+				   (1)index 是每个元素的索引号.
+			       (2)demEle是DOM元素对象,不是jquery对象.所以想要使用jquery方法,
+				      需要这个dom元素转换为jquery对象$(domEle).
+				*/
+				var arr = ["red", "green", "blue"];
+				var sum = 0;
+				$('div').each(function(index, domEle) {
+					//第一个参数,一定是索引号,可以自己指定索引号名称.
+					console.log(index);
+					//第二个元素,一定是dom元素对象.
+					console.log(domEle);
+
+					//练习1-遍历,把div设置成不同的颜色
+					//(1),设置一个数组
+					//(2),遍历设置
+					$(domEle).css('color', arr[index]);
+
+					//练习2-把div内的数字相加
+					sum += parseInt($(domEle).text());
+				});
+				console.log(sum); //6
+
+
+				/* 二、---遍历元素,给同一类元素做不同的操作--- 
+				1. 语法二:$.each(object, [callback]);
+				2. 参数:object:需要例遍的对象或数组。
+				        callback:每个成员/元素执行的回调函数(回调函数拥有两个参数)。
+						  第一个为对象的成员或数组的索引，
+				          第二个为对应变量或内容。
+				3. 通用例遍方法，可用于例遍对象和数组。
+				4. 不同于jQ对象的 $().each() 方法，此方法可用于例遍任何对象。
+				5. 如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。
+				*/
+				//例遍数组，同时使用元素索引和内容。
+				$.each([0, 1, 2], function(i, n) {
+					console.log("Item #" + i + ": " + n);
+				});
+				//例遍对象，同时使用成员名称和变量内容。
+				$.each({
+					name: "John",
+					lang: "JS"
+				}, function(i, n) {
+					console.log("Name: " + i + ", Value: " + n);
+				});
+
+
+				/* 三、-创建元素-   语法:$('<li></li>') */
+				//创建元素
+				var li1 = $('<li>我是后来内部添加到前边的li</li>');
+				var li2 = $('<li>我是后来内部添加到后边的li</li>');
+				var div1 = $('<div>我是后来外部添加到后边的div</div>');
+				var div2 = $('<div>我是后来外部添加到后边的div</div>');
+
+
+				/* 四、-添加元素- 
+				1. 内部添加且放到内容的最前边:$('ul').prepend(li);
+				2. 内部添加且放到内容的最后边:$('ul').append(li);
+				3. 外部添加且放到内容的最前边:$('div').before(li);
+				4. 外部添加且放到内容的最后边:$('div').after(li);
+				*/
+				//内部添加到前边
+				$('ul').prepend(li1);
+				//内部添加到后边
+				$('ul').append(li2);
+				//外部添加到前边
+				$('.test').before(div1);
+				//外部添加到后边
+				$('.test').after(div2);
+
+
+				/* 五、-删除元素- */
+				//删除匹配的元素(本身)            element.remove();
+				//$('div').remove();
+				//删除匹配的元素集合中所有的子节点 element.empty();
+				//$('ul').empty();
+				//清空匹配的元素内容              element.html('');
+				//$('ul').html("");
+			});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<ul>
+			<li>原来的li</li>
+		</ul>
+		<div class="test">原来的div</div>
+	</body>
+</html>

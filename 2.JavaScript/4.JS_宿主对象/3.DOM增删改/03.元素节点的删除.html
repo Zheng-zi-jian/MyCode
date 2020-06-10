@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>元素的删除</title>
+    <link rel="stylesheet" type="text/css" href="../DOM实际应用练习/CSS/4.1.css" />
+    <script>
+        function myClick(idStr, fun) {
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+        /*
+        *   removeChild()
+        *       作用:从子节点列表中删除某个节点。
+        *       语法:
+        *           父节点removeChild(子节点);
+        *   方法一:
+        *       可以删除指定父元素的一个指定子元素
+        *   方法二:
+        *       子节点的父节点的删除自己的子节点
+        * */
+        window.onload = function() {
+            // 删除#bj节点
+            myClick("btn04",function(){
+                var city = document.getElementById("city");
+                var bj = document.getElementById("bj");
+                //方法一:
+                city.removeChild(bj);
+                //方法二:
+                bj.parentNode.removeChild(bj);//常用
+            })
+        }
+    </script>
+</head>
+<body>
+<h1 style="text-align: center">元素节点的修改和删除</h1>
+<div id="total">
+    <div class="inner">
+        <h2>你喜欢哪个城市?</h2>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+    </div>
+</div>
+<div id="btnList">
+    <div><button id="btn04">删除#bj节点</button></div>
+</div>
+</body>
+</html>
