@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>事件应用_修改类名_兼容IE8</title>
+    <style>
+        .b1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .b2 {
+            width: 200px;
+            height: 400px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var btn04 = document.getElementById("btn04");
+
+            //检查样式
+            btn01.onclick = function () {
+                var result = hasClass(box, "b2");
+                alert(result);
+            };
+
+            //添加样式
+            btn02.onclick = function () {
+                addClass(box, "b2");
+            };
+
+            //删除样式
+            btn03.onclick = function () {
+                removeClass(box, "b2");
+            };
+
+            //切换样式
+            btn04.onclick = function () {
+                toggleClass(box, "b2");
+            };
+        };
+
+        /*定义一个函数,用来判断一个元素中是否含有指定的class属性值
+          参数:    obj   要判断是否class属性的对象
+                    cn    要判断的class值
+          有返回 true   没有返回false*/
+        function hasClass(obj, cn) {
+            var reg = new RegExp("\\b" + cn + "\\b");
+            return reg.test(obj.className);
+        }
+
+
+        /*	定义一个函数,用来向一个元素中添加指定的class属性值
+            参数:    obj   要添加class属性的对象
+                     cn    要添加的class值*/
+        function addClass(obj, cn) {
+            if (!hasClass(obj, cn)) {
+                obj.className += " " + cn;
+            }
+        };
+
+
+        /*  定义一个函数,用来在一个元素中删除指定的class属性值
+            参数:    obj   要删除class属性的对象
+                     cn    要删除的class值*/
+        function removeClass(obj, cn) {
+            var reg = new RegExp("\\b" + cn + "\\b");       //创建一个正则表达式
+            obj.className = obj.className.replace(reg, ""); //删除class
+        }
+
+
+        /*	定义一个函数,用来切换一个元素中添加指定的class属性值
+            若元素中有该类,则删除
+            若元素中没有该类,则添加
+            参数:    obj   要添加class属性的对象
+                     cn    要添加的class值*/
+        function toggleClass(obj, cn) {
+            if (hasClass(obj, cn)) {
+                removeClass(obj, cn);
+            } else {
+                addClass(obj, cn);
+            }
+        }
+    </script>
+</head>
+<body>
+
+<button id="btn01">判断是否含有样式</button>
+<button id="btn02">添加样式</button>
+<button id="btn03">删除样式</button>
+<button id="btn04">切换样式</button>
+<br/>
+<br/>
+<div id="box" class="b1 "></div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图</title>\
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			/* 设置外部容器 */
+			#outer {
+				/* 容器的宽度 */
+				width: 520px;
+				/* 容器的高度 */
+				height: 333px;
+				/* 容器居中 */
+				margin: 50px auto;
+				/* 设置背景颜色 */
+				background-color: greenyellow;
+				/* 设置左右内边距10px */
+				padding: 10px 0;
+				/* 开启相对定位 */
+				position: relative;
+				/* 裁剪溢出 */
+				overflow: hidden;
+			}
+
+			/* 设置图片列表 */
+			#imgList {
+				/* 设置宽度  避免宽度写死,在JS中实现 */
+				/* width: 2600px; */
+				/* 去除无序列表符号 */
+				list-style: none;
+				/* 开启绝对定位 */
+				position: absolute;
+				/* 设置偏移量 */
+				/* left: -520px; */
+
+			}
+
+			/* 设置图片 */
+			#imgList li {
+				/* 图片向左浮动 */
+				float: left;
+				/* 设置左右外边距 */
+				margin: 0px 10px;
+			}
+
+			/* 设置导航栏 */
+			#navDiv {
+				/* 开启绝对定位 */
+				position: absolute;
+				/* 调整位置 */
+				bottom: 12px;
+				/* 居中效果  避免宽度写死,在JS中实现 */
+				/* left: 197px; */
+			}
+
+			/* 设置导航按钮 */
+			#navDiv a {
+				/* 开启浮动 */
+				float: left;
+				/* 设置宽高 */
+				width: 15px;
+				height: 15px;
+				/* 设置背景颜色 */
+				background-color: red;
+				/* 设置透明效果 ; 兼容IE8*/
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+				/* 设置外边距 */
+				margin: 0 5px;
+			}
+
+			/*设置鼠标移入效果 */
+			#navDiv a:hover {
+				background-color: black;
+			}
+		</style>
+		<!-- 引入外部js -->
+		<script type="text/javascript" src="../BOM基础/JS/tools.js"></script>
+		<script>
+			window.onload = function() {
+				/* 设置imgList的宽度 */
+				//获取imgList
+				var imgList = document.getElementById("imgList");
+				//获取页面中所有的img标签
+				var imgArr = document.getElementsByTagName("img");
+				//设置imgList的宽度
+				imgList.style.width = 520 * imgArr.length + "px";
+
+				/* 设置导航按钮居中 */
+				//获取oute
+				var oute = document.getElementById("outer");
+				//获取imgDiv
+				var navDiv = document.getElementById("navDiv");
+				//设置navDiv的left值
+				navDiv.style.left = (oute.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+				/* 设置导航按钮第一个默认选中 */
+				//默认显示的索引
+				var index = 0;
+				//获取所有的a
+				var allA = document.getElementsByTagName("a");
+				//设置默认选中
+				allA[index].style.backgroundColor = "black";
+
+				/* 功能需求:点击导航栏按钮,显示相对应的图片 */
+				//为所有超链接绑定单击响应函数
+				for (var i = 0; i < allA.length; i++) {
+					//为每一个超链接添加编号
+					allA[i].num = i;
+					//绑定函数
+					allA[i].onclick = function() {
+						//获取点击超链接的索引,并将其设置为index
+						index = this.num
+						//切换图片
+						//imgList.style.left = -520 * index + "px";
+						//调用方法,修改正在选中的a
+						setA();
+						//使用外部引入的move切换图片
+						move(imgList, "left", -520 * index, 25, function() {});
+					};
+				};
+
+				/* 设置自动切换图片 */
+				autoChange();
+
+				//创建以一个方法,用来设置选中的A
+				function setA() {
+					//自动切换,选中点循环
+					if (index >= imgArr.length - 1) {
+						index = 0;
+						//列表闪回
+						imgList.style.left = 0;
+					};
+					//遍历所有的a,并将其全部修改成红色
+					for (var i = 0; i < allA.length; i++) {
+						allA[i].style.backgroundColor = "";
+					};
+					//将选中的a设置为黑色
+					allA[index].style.backgroundColor = "black";
+				};
+				//创建一个函数,用来开启自动切换图片
+				function autoChange() {
+					//开启定时器
+					setInterval(function() {
+						//使索引自增
+						index++;
+						//判断index的值
+						if (index >= 6) {
+							index = 0;
+						}
+						move(imgList, "left", -520 * index, 25, function() {
+							//修改导航点
+							setA();
+						});
+					}, 3000);
+				};
+
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 创建一个外部容器 -->
+		<div id="outer">
+			<!-- 创建图片列表 -->
+			<ul id="imgList">
+				<li><img src="../BOM基础/img/1.jpg"></li>
+				<li><img src="../BOM基础/img/2.jpg"></li>
+				<li><img src="../BOM基础/img/3.jpg"></li>
+				<li><img src="../BOM基础/img/4.jpg"></li>
+				<li><img src="../BOM基础/img/5.jpg"></li>
+				<li><img src="../BOM基础/img/1.jpg"></li>
+			</ul>
+			<!-- 创建导航按钮 -->
+			<div id="navDiv">
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+			</div>
+		</div>
+	</body>
+</html>
