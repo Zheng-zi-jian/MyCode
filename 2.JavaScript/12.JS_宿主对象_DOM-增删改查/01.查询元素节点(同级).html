@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM查询-获取元素的节点</title>
+    <script>
+        /**
+         * 一、普通查询
+         *  (1)根据id属性来获取"一个"元素节点对象.
+         *        document.getElementById("ID值");
+         *
+         *  (2)根据标签名来获取"一组"元素节点对象.
+         *        document.getElementsByTagName("标签名");
+         *                该方法会给我们返回一个类数组对象，所有查询到的元素都会封装到对象中,即使查询到的元素只有一个，也会封装到数组中返回
+         *
+         *  (3)根据name属性值来获取"一组"元素节点对象.
+         *        document.getElementsByName("name值");
+         *
+         *  (4)根据元素的class属性值查询一组元素节点对象<该方法不支持IE8及以下的浏览器>
+         *        document.getElementsByClassName();
+         *
+         *  (5)获取页面中的所有元素
+         *        document.getElementsByTagName("*");
+         *
+         * (6)获取页面中的所有的div
+         *        document.getElementsByTagName("div");
+         *
+         二、特殊查询
+         *  (1)根据一个CSS选择器来查询一个元素节点对象.
+         *        document.querySelector("元素选择器");
+         *               该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
+         *
+         *  (2)根据一个CSS选择器将符合条件的元素封装到一个数组中返回.
+         *        document.querySelectorAll("元素选择器");
+         *
+         *               该方法即使符合条件的元素只有一个，他也会返回数组。
+         *  (3)获取网页的body元素(在document中有一个属性body  保存的是body的引用)
+         *        document.body;
+         *
+         *  (4)获取网页中的根元素
+         *        document.documentElement;
+         *
+         *  (***)getElementsByName()它返回的是一个实时更新的数组
+         *      所有的getElementsXxx的方法都是这个特点,如果在网页中添加新的符合条件的元素，它会自动被添加到数组中.
+         */
+        window.onload = function () {
+            //为id为btn01的按钮绑定一个单击响应函数; 需求:查找#bj节点
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                var bj = document.getElementById("bj"); //
+                alert(bj.innerHTML); //返回:北京
+            };
+
+            //为id为btn02的按钮绑定一个单击响应函数; 需求:查找所以li节点;lis是个类数组,有多个值.
+            var btn02 = document.getElementById("btn02"); //获取按钮
+            btn02.onclick = function () {
+                var lis = document.getElementsByTagName("li");
+                for (var i = 0; i < lis.length; i++) {
+                    alert(lis[i].innerHTML);
+                }
+            };
+
+            //为id为btn03的按钮绑定一个单击响应函数; 需求:查找name=gender的所有节点
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function () {
+                var inputs = document.getElementsByName("gender");
+                for (var i = 0; i < inputs.length; i++) {
+                    alert(inputs[i].className);
+                }
+            };
+
+            //为id为btn04的按钮绑定一个单击响应函数; 需求:查找#city下所有li节点
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function () {
+                var city = document.getElementById("city"); //先获取id为city的元素
+                var lis = city.getElementsByTagName("li");  //再获取#city下的所有li节点
+                for (var i = 0; i < lis.length; i++) {
+                    alert(lis[i].innerHTML)
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+<div class="inner">
+    <h1>DOM查询-获取元素节点</h1>
+    <p>你喜欢哪个城市?</p>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    <p>你喜欢哪款单机游戏?</p>
+    <ul id="game">
+        <li id="rl">红警</li>
+        <li>实况</li>
+        <li>极品飞车</li>
+        <li>魔兽</li>
+    </ul>
+    <p>你手机的操作系统是?</p>
+    <ul id="phone">
+        <li>IOS</li>
+        <li id="android">Android</li>
+        <li>Windows Phone</li>
+    </ul>
+</div>
+<div class="inner">
+    gender:
+    <input class="hello" type="radio" name="gender" value="male"/>Male
+    <input class="hello" type="radio" name="gender" value="female"/>Female
+</div>
+<div id="btnList">
+    <button id="btn01">查找#bj节点</button>
+    <button id="btn02">查找所有li节点</button>
+    <button id="btn03">查找name=gender的所有节点</button>
+    <button id="btn04">查找#city下所有li节点</button>
+</div>
+</div>
+</body>
+</html>
