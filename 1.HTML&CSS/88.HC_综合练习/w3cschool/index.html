@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>W3C导航条</title>
+		<!-- 引入外部CSS -->
+		<link rel="stylesheet" href="./css/reset.css" />
+		<style>
+			/* 外部 */
+			.list {
+				/* 设置宽度 */
+				width: 1210px;
+				/* 设置高度 */
+				height: 48px;
+				/* 设置行高,使文字垂直居中 */
+				line-height: 48px;
+				/* 背景颜色 */
+				background-color: #E8E7E3;
+				/* 外边距 */
+				margin: 50px auto;
+				/* 开启弹性容器 */
+				display: flex;
+			}
+
+			/* 内部 */
+			.list li {
+				/* 设置弹性系数 */
+				flex-grow: 1;
+			}
+
+			/* 字体（超链接） */
+			.list a {
+				/* 设置为块元素 */
+				display: block;
+				/* 设置字体颜色 */
+				color: #808080;
+				/* 设置字体大小 */
+				font-size: 16px;
+				/* 去除超链接下划线 */
+				text-decoration: none;
+				/* 文字水平居中 */
+				text-align: center;
+			}
+
+			/* 鼠标移入效果 */
+			.list a:hover {
+				/* 改变背景颜色 */
+				background-color: #3F3F3F;
+				/* 改变字体颜色 */
+				color: #fff;
+			}
+
+			.a {
+				width: 990px;
+				height: 32px;
+				margin: 0 auto;
+				background: url(img/bg.png) repeat-x;
+			}
+		</style>
+	</head>
+	<body>
+		<p>练习一：w3cschool网站顶部导航条</p>
+		<ul class="list">
+			<li>
+				<a href="javaScript:;">HTML/CSS</a>
+			</li>
+			<li>
+				<a href="javaScript:;">JavaScript</a>
+			</li>
+			<li>
+				<a href="javaScript:;">Server Side</a>
+			</li>
+			<li>
+				<a href="javaScript:;">ASP.NET</a>
+			</li>
+			<li>
+				<a href="javaScript:;">XML</a>
+			</li>
+			<li>
+				<a href="javaScript:;">Web Services</a>
+			</li>
+			<li>
+				<a href="javaScript:;">Web Building</a>
+			</li>
+		</ul>
+		<p>练习二：导航条中的渐变效果</p>
+		<div class="a"></div>
+	</body>
+</html>

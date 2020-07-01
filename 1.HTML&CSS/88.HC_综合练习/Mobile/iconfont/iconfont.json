@@ -1,0 +1,58 @@
+{
+  "id": "1668943",
+  "name": "移动端",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "401311",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "8655484",
+      "name": "书",
+      "font_class": "shu",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "9271215",
+      "name": "信",
+      "font_class": "xin",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "9495101",
+      "name": "地球",
+      "font_class": "diqiu",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "10144325",
+      "name": "书",
+      "font_class": "shu1",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "11020711",
+      "name": "剪刀",
+      "font_class": "jiandao",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "12905312",
+      "name": "加号",
+      "font_class": "addTodo-nav",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

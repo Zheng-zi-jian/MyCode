@@ -1,0 +1,106 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+html{
+	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.wrap{
+	width: 1202px;
+	height: 99px;
+	padding-top:10px;
+	margin: 100px auto;
+}
+
+.left{
+	float: left;
+}
+
+.left .left-list{
+	float: left;
+	width: 260px;
+	height: 94px;
+}
+
+.left .left-list li{
+	float: left;
+	width: 128px;
+	height: 45px;
+	position: relative;
+	border: 1px solid #efefef;
+	letter-spacing: 1px
+	border-radius: 8px;
+}
+
+.left .left-list a{
+	display: block;
+	line-height: 45px;
+	text-align: center;
+	color: #000000;
+	width: 100%;
+	height: 100%;
+	font-family: "Microsoft Yahei";
+	color: #545e64;
+	font-weight: 700;
+	
+}
+
+.left .left-list a:hover{
+	color: rgb(235,87,62);
+}
+
+.box{
+	width: 225px;
+	height: 92px;
+	float: left;
+	border: 1px solid blue;
+	background: #fff;
+	color: #333;
+	border: 1px solid #efefef;
+	font-size: 14px;
+	font-weight: 300;
+	margin-left: 8px;
+	border-radius: 8px;
+	
+}
+
+.box:hover{
+	box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px inset;
+	transition-duration: 0.3s;
+}
+
+.box em{
+	width: 52px;
+	height: 52px;
+	display: block;
+	float: left;
+	background: url(sprite.png) no-repeat;
+	margin: 20px 16px 10px 14px;
+}
+
+.box p{
+	text-align: left;
+	margin: 25px 0px 10px 10px;
+}
+
+.box span{
+	font-size: 12px;
+}
+
+.box #fi{
+	background-position-x: -156px;
+}
+.box #se{
+	background-position-x: -102px;
+}
+ .box #th{
+	background-position-x: 0px;
+}
+ .box #fo{
+	background-position-x: -52px;
+	margin: 20px 4px 0px 7px;
+}

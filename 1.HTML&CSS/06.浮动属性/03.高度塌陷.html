@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>高度塌陷</title>
+		<!--
+			--高度塌陷的问题:--
+             在浮动布局中，父元素的高度默认是被子元素撑开的，当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离
+         将会无法撑起父元素的高度，导致父元素的高度丢失,父元素高度丢失以后，其下的元素会自动上移，导致页面的布局混乱
+         所以高度塌陷是浮动布局中比较常见的一个问题，这个问题我们必须要进行处理!
+		 
+			--解决方案:
+			1.给父元素设置固定高度
+			2.给父元素设置overflow:hidden;(同时具备溢出隐藏,有时我们是希望子元素超出父元素的,所以该方法不通用)
+			3.给父元素设置浮动
+			4.额外标签法,在父元素的最后,加一个块元素,使用clear属性
+			img.给父元素调用clearfix类名,利用伪元素方式
+			6.clear属性:
+				-作用:清除浮动元素对当前元素所产生的影响
+				-可选值:
+						 left:清除左侧浮动元素对当前元素的影响
+						 right:清除右侧浮动元素对当前元素的影响
+						 both:  清除较大影响
+				原理:设置清除浮动后,浏览器自动为元素添加上外边距,使其不动 
+		-->
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.header {
+				width: 1000px;
+				margin: 0 auto;
+				border: 5px solid blue;
+				/* 方案一: */
+				/* height: 300px; */
+				/* 方案二: */
+				/* overflow: hidden; */
+				/* 方案三: */
+				/* float:left; */
+			}
+
+			.one {
+				width: 100px;
+				height: 100px;
+				background: red;
+				float: left;
+			}
+
+			.two {
+				width: 200px;
+				height: 200px;
+				background: green;
+				float: left;
+			}
+
+			/* 方案四: */
+			.three {
+				height: 10px;
+				background: yellow;
+				clear: both;
+			}
+
+			.banner {
+				height: 100px;
+				background: gray;
+			}
+
+			/* 方案五: */
+			/* clearfix 这个样式可以同时解决高度塌陷和外边距重叠的问题，
+			       当你在遇到这些问题时，直接使用clearfix这个类即可 */
+			.clearFix::before,
+			.clearFix::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header clearFix">
+			<div class="one"></div>
+			<div class="two"></div>
+		</div>
+		<div class="banner"></div>
+	</body>
+	<!--   
+	  --补充--
+	 BFC(Block Formatting Context)块级格式化环境:
+	  -BFC是一个CSS中的隐含的属性,可以为一个元素开启BFC
+		-开启BFC该元素会变成一个独立的布局区域
+		-元素开启BFC后的特点:
+		 1.开启BFC的元素不会被浮动元素所覆盖
+		 2.开启BFC的元素子元素和父元素外边距不会重叠
+		 3.开启BFC的元素可以包含浮动的子元素
+		 
+		-可以通过一些特殊方式来开启元素的BFC:
+		 1、设置元素的浮动(不推荐)
+		 2、将元素设置为行内块元素(不推荐)
+		 3、将元素的overflow设置为一个非visible的值
+		    - 常用的方式为元素设置overflow:hidden开启其BFC以使其可以包含浮动元素
+	 -->
+</html>

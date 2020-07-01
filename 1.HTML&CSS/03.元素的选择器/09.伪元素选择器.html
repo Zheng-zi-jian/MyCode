@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪元素选择器</title>
+		<!--
+			---伪元素---
+			解释：表示页面中一些特殊的并不存在的元素（特殊位置）
+			语法：  ::
+			例子：::first-letter  表示第一个字母
+			      ::first-line    表示第一行
+			      ::selection     表示选中的内容
+			      ::beffore       元素的开始
+			      ::after         元素的结尾
+			      --before和after 结合content属性使用
+		-->
+		<style>
+			p{
+				font-size: 20px;
+			}
+			p::first-letter{
+				font-size: 30px;
+			}
+			p::first-line{
+				background-color: red;
+			}
+			p::selection{
+				color: gold;
+			}
+			div::before{
+				content: "kaishi";
+				color: #0000FF;
+			}
+			div::after{
+				content: "jiewei";
+				color: brown;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			A123123456789123qwert<br />
+			yasdfgzxcvbndfghertyuxcvb
+		</p>
+		<div>
+			HELLO HELLO
+		</div>
+	</body>
+</html>

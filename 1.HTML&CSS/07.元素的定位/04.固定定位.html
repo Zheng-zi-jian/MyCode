@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>固定定位</title>
+		<style>
+			body {
+				height: 1000px;
+			}
+
+			/*
+		固定定位：
+		- 将元素的position属性设置为fixed则开启了元素的固定定位
+		- 固定定位也是一种绝对定位，所以固定定位的大部分特点都和绝对定位一样
+			唯一不同的是固定定位永远参照于浏览器的视口进行定位
+			固定定位的元素不会随网页的滚动条滚动
+		固定定位: 当元素设置固定定位后,将元素设置在浏览器窗口的某个坐标位置,
+						固定定位的参考点永远是浏览器窗口
+
+		*/
+			.box1 {
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+				position: fixed;
+				left: 60px;
+				top: 60px;
+			}
+
+			.box2 {
+				width: 100px;
+				height: 100px;
+				background-color: #bfa;
+			}
+
+			.banner {
+				width: 1200px;
+				;
+				height: 600px;
+				background-color: #0086B3;
+				margin: 0 auto;
+			}
+
+			.fixed-nav {
+				width: 30px;
+				height: 200px;
+				background-color: red;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: 60px;
+				margin-left: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="banner">banner图</div>
+		<div class="fixed-nav"></div>
+	</body>
+</html>

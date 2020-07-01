@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 
+			--子元素是在父元素的内容区进行排列的如果子元素的内容大于父元素,则会溢出.使用overflow属性进行处理--
+				属性:overflow:;
+					属性值:
+						overflow:visible 默认值  溢出部分显示
+						overflow:hidden  溢出部分不显示
+						overflow:scroll  双滚动条
+						overflow:auto    单滚动条(根据需要生成)
+						overflow-x:;	单独处理水平
+						overflow-y:;	单独处理垂直
+		 -->
+		<style>
+			
+			.one{
+				width: 200px;
+				height: 300px;
+				background-color: #7FFFD4;
+				margin-top: 100px;
+				overflow: hidden;
+				overflow: scroll;
+			}
+			
+			.one div:only-child {
+				width: 160px;
+				height: 560px;
+				background-image: linear-gradient(to top, red 30px, yellow);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one">
+			<div></div>
+		</div>
+	</body>
+</html>

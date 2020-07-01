@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>小米闪购-小米商城</title>
+    <!-- 引入重置CSS -->
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <!-- 引入主页CSS -->
+    <link rel="stylesheet" href="css/index.css"/>
+    <!-- 引入字体 -->
+    <link rel="stylesheet" href="./iconfont/iconfont.css"/>
+    <!-- 引入网页图标 -->
+    <link rel="icon" href="./favicon.ico"/>
+    <!--引入JS-->
+    <script src="index.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<div class="topBar">
+    <div class="container">
+        <!-- 顶部导航栏(左侧) -->
+        <div class="top-left">
+            <a href="javaScript:;">小米商城</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">MIUI</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">lOT</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">云服务</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">金融</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">有品</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">小爱开放平台</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">企业团购</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">资质证照</a>
+            <span class="line">|</span>
+            <a href="javaScript:;">协议规则</a>
+            <span class="line">|</span>
+            <a class="app" href="javascript:;">
+                下载App
+                <!-- 添加一个弹出框 -->
+                <div class="qrcode">
+                    <img src="img/download.png"/>
+                    <span>小米商城app</span>
+                </div>
+            </a>
+            <span class="line">|</span>
+            <a href="javaScript:;">Select Location </a>
+        </div>
+        <!-- 顶部导航栏(右侧) -->
+        <div class="top-right">
+            <div class="top-right-login">
+                <a href="javaScript:;">登录</a>
+                <span class="line">|</span>
+                <a href="javaScript:;">注册</a>
+                <span class="line">|</span>
+                <a href="javaScript:;">消息通知</a>
+            </div>
+            <div class="top-right-cart">
+                <a class="font" href="javaScript::">
+                    <i class="iconfont">&#xe607;</i>
+                    购物车 (0)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部商品栏 -->
+<div class="headBar">
+    <div class="container">
+        <!-- 创建头部左侧logo -->
+        <h1 class="logo" title="小米">
+            <a class="home" href="/"></a>
+            <a class="mi" href="/" title=""></a>
+        </h1>
+        <div class="nav-list">
+            <ul>
+                <li class="all-goods-wrapper">
+                    <a class="all-goods" href="javaScript:;"></a>
+                    <ul class="left-menu">
+                        <li>
+                            <a href="javaScript:;">
+                                手机 电话卡
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javaScript:;">
+                                电视 盒子
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javaScript:;">
+                                笔记本 平板
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javaScript:;">
+                                家电 插线板
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                出行 穿戴
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                智能 路由器
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                电源 配件
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                健康 儿童
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                耳机 音箱
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javaScript:;">
+                                生活 箱包
+                                <i class="iconfont">&#xe66b;</i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="show-goods"><a href="#">小米手机</a></li>
+                <li class="show-goods"><a href="#">Redmi 红米</a></li>
+                <li class="show-goods"><a href="#">电视</a></li>
+                <li class="show-goods"><a href="#">笔记本</a></li>
+                <li class="show-goods"><a href="#">家电</a></li>
+                <li class="show-goods"><a href="#">路由器</a></li>
+                <li class="show-goods"><a href="#">智能硬件</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">社区</a></li>
+                <!-- 创建一个弹出窗 -->
+                <div class="goods-info"></div>
+            </ul>
+        </div>
+        <div class="secrch-in">
+            <input class="secrch" type="search" placeholder="王一博同款"/>
+            <i id="fa" class="iconfont">&#xe600;</i>
+        </div>
+    </div>
+</div>
+<!-- banner轮播图 -->
+<div class="banner-wrpper">
+    <div class="banner container">
+        <ul class="imglist">
+            <li>
+                <a id="bannerimg" href="javascript:;">
+                    <img src="img/banner1.jpg"/>
+                    <img src="img/banner2.jpg" style="z-index: -1"/>
+                    <img src="img/banner3.jpg" style="z-index: -1"/>
+                    <img src="img/banner4.jpg" style="z-index: -1"/>
+                    <img src="img/banner5.jpg" style="z-index: -1"/>
+                </a>
+            </li>
+        </ul>
+        <div class="prev-next">
+            <a class="prve" href="javascript:;"></a>
+            <a class="next" href="javascript:;"></a>
+        </div>
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</div>
+<!-- 业务商品 -->
+<div class="miIcon container">
+    <div class="icon">
+        <ul class="icon-list">
+            <a href="javascript:;">
+                <li>
+                    <a href="jacaScript:;" class="iconfont">&#xe603;</a>
+                    <span class="wz">小米秒杀</span>
+                </li>
+            </a>
+            <li>
+                <a href="jacaScript:;" class="iconfont">&#xe67f;</a>
+                <span class="wz">企业团购</span>
+            </li>
+            <li>
+                <a href="jacaScript:;" class="iconfont">&#xe664;</a>
+                <span class="wz">F码通道</span>
+            </li>
+            <li>
+                <a href="jacaScript:;" class="iconfont">&#xe601;</a>
+                <span class="wz">米粉卡</span>
+            </li>
+            <li>
+                <a href="jacaScript:;" class="iconfont">&#xe602;</a>
+                <span class="wz">以旧换新</span>
+            </li>
+            <li>
+                <a href="jacaScript:;" class="iconfont">&#xe604;</a>
+                <span class="wz">话费充值</span>
+            </li>
+        </ul>
+    </div>
+    <div class="img">
+        <ul class="img-list">
+            <li>
+                <a href="javaScript:;">
+                    <img src="img/1.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="javaScript:;">
+                    <img src="img/2.jpg"/>
+                </a>
+            </li>
+            <li>
+                <a href="javaScript:;">
+                    <img src="img/3.jpg"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 创建右侧返回窗口 -->
+<div class="back-top"></div>
+</body>
+</html>

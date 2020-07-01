@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页面的布局</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				text-align: center;
+				font-size: 20px;
+			}
+			body{
+				padding: 20px;
+			}
+			.one ,.two{
+				width: 100%;
+				height: 100px;
+				margin-top: 15px;
+				border: 3px blue solid;
+			}
+
+			.one div:nth-of-type(1) {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-left: 100px;
+			}
+			
+			.two div:nth-of-type(1) {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 auto;
+			}
+			
+			.three{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+				margin: 10px auto;
+				margin-bottom: 0px;
+				position: relative;
+			}
+			.three div:nth-of-type(1){
+				width: 60px;
+				height: 60px;
+				background: blue;
+				position: absolute;
+				left:50%;
+				margin-left: -30px;
+				top:50%;
+				margin-top:-30px;
+			}
+
+		</style>
+	</head>
+	<!--
+		1.元素水平方向布局(元素在其夫水平方向布局的位置由以下几个属性共同决定)
+			margin-left~~borde~~-leftpadding-left~~width~~paddingrigh~~border-right~~margin-right
+			一个元素在父元素的中,水平布局满足一下公式:
+			margin-left+border-left+paddin-left+width+padding-righ+border-right+margin-right=其父元素内容区的宽度
+
+		2.元素水平方向布局(水平垂直居中)
+			定位的元素可以使用margin属性进行位移,margin起始位置是在偏移量的基础之上
+			定位水平居中:将left设置50%,
+			再设置margin-left等于负的自身宽度的一半
+			定位垂直居中:将top设置50%,
+			再设置margin-top等于负的自身高度的一半
+	-->
+	<body>		
+		<!-- 指定水平位置 -->
+		<p>指定水平位置</p>
+		<div class="one">
+			<div></div>
+		</div>
+		<!-- 自动水平居中 -->
+		<p>自动水平居中</p>
+		<div class="two">
+			<div></div>
+		</div>
+		<!-- 水平垂直居中 -->
+		<p>水平垂直居中</p>
+		<div class="three">
+			<div></div>
+		</div>
+	</body>
+</html>

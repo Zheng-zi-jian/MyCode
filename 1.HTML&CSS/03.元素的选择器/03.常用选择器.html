@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常用选择器</title>
+		<style type="text/css">
+		/*
+		  --元素选择器
+		  需求1：将所有的段落设置为红色字体
+		  作用：个根据标签名来选择指定元素
+		  语法：标签名{
+		  例子：p{}
+		 */
+			p{
+				color: red;
+			}
+			h1{
+				color: #008000;
+			}
+		/*
+		 --id选择器
+		 需求2：将第三句设置为黄色
+		 作用：根据元素id值选中一个元素
+		 语法：#id属性值
+		 例子：#box{}  #yellow{}
+		 */
+	        #yellow{
+	        	color:yellow;
+	        }
+		/*
+		 --class选择器（类选择器）class是一个标签属性，他和id类似，不同的是class可以重复使用.可以同过class属性进行分组
+		 需求3：将2、6句设置为蓝色
+		 作用：根据元素的class属性值选中一组元素
+		 语法：。class属性值
+		 优点：可以同时为一个元素指定多个class
+		 */
+			.blue{
+				color: blue;
+			}
+			.abc{
+				font-size: 20px;
+			}
+		/*
+		 --统配选择器
+		 作用：选择页面中的所有元素
+		 语法：*
+		 */
+		    *{
+		    	font-style: italic;
+		    }
+		</style>		
+	</head>
+	<body>
+		<h1>我是标题</h1>
+		<p>少小离家老大回1</p>
+		<p>少小离家老大回2</p>
+		<p id="yellow">少小离家老大回3</p>
+		<p>少小离家老大回4</p>
+		<p class="blue abc">少小离家老大回5</p>
+		<p class="blue">少小离家老大回6</p>
+	</body>
+</html>
