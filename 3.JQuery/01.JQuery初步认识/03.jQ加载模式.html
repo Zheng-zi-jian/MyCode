@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onload与ready的区别</title>
+</head>
+<body>
+<img id="logo"
+     src="https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-05-19/6fec71d56242b74eb24b4ac80b817eac.png">
+<script type="text/javascript" src="../5.JQuery方法/js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    //window.onload与document.ready的区别
+
+    //window.onload是需要等所有的资源加载完成才会触发回调函数   html  css  js  图片等
+    //jquery的加载事件是document.ready  指的是文档（dom）加载完成后 就会触发  不包含其他资源
+    //window.onload 只能指定一个回调函数     document.ready可以指定多次
+
+    var $img = $('#logo');
+    console.log($img.width());
+    window.onload = function () {
+        console.log('onload1:' + $img.width());
+    };
+    window.onload = function () {
+        console.log('onload2:' + $img.width());
+    };
+    $(function () {
+        console.log('jQuery1:' + $img.width());
+    });
+    $(function () {
+        console.log('jQuery2:' + $img.width());
+    });
+    $(document).ready(function () {
+    });
+</script>
+</body>
+</html>

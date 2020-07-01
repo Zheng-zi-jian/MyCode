@@ -1,0 +1,140 @@
+a{
+	text-decoration: none;
+	color: #fff;
+}
+// 头部边框
+.top-bar-wrapper{
+	background-color: #000000;
+}
+.top-bar{
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 48px;
+	background-color:#000000;
+	padding: 0 14px;
+	display: flex;
+	// 垂直居中
+	align-items: center;
+	justify-content: space-between;
+}
+// 左侧导航图标
+.left-menu{
+	// 设置图标
+	&:active{
+		.nav{
+			display: block;
+		}
+	}
+	.nav{
+		display: none;
+		position: absolute;
+		top:48px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: #000;
+		padding-top: 60px;
+		li{
+			width: 80%;
+			margin: 0  auto;
+			a{
+				display: block;
+				line-height: 44px;
+				font-size: 14px;
+				border-bottom: 1px solid #757474;
+			}
+		}
+	}
+	// 设置图标样式
+	.menu-icon{
+		width: 18px;
+		height: 48px;
+		position: relative;
+		
+	// 设置图标线
+	li{
+		width: 18px;
+		height: 1px;
+		background-color: #FFFDEF;
+		position: absolute;
+		// 修改图标旋转的原点
+		transform-origin: left center;
+		// 图标点击过渡
+		transition: 0.5s;
+	}
+	li:nth-child(1){
+		top:18px;
+	}
+	li:nth-child(2){
+		top:24px;	
+	}
+	li:nth-child(3){
+		top:30px;
+	}
+	&:active{
+		li:nth-child(1){
+			top:18px;
+			// 旋转
+			transform: rotateZ(40deg);
+		}
+		// 点击时图标第二条线隐藏
+		li:nth-child(2){
+			top:24px;
+			opacity: 0;
+		}
+		li:nth-child(3){
+			top:30px;
+			// 旋转
+			transform: rotateZ(-40deg);
+		}
+    }
+    }
+}
+// 设置logo
+
+.logo{
+	a{
+		text-indent: -999999px;
+		display: block;
+		width: 122px;
+		height: 32px;
+		background-image: url(../img/dff63979.sprites-index@2x.png);
+	    background-size: 400px 400px;
+	}
+}
+
+// 设置媒体查询
+@media only screen {
+	@media (min-width:768px){
+		.left-menu{
+			flex: auto;
+			order: 2;
+			// 显示菜单
+			.nav{
+				display: flex;
+				position: static;
+				padding: 0;
+				justify-content: space-around;
+				li{
+					margin: 0;
+					width: auto;
+					border-bottom: none;
+					a{
+						line-height: 47px;
+					}
+				}
+		    }
+			// 隐藏菜单图标		
+			.menu-icon{
+				display: none;
+			}
+			
+		}	
+		.logo{
+			order: 1;
+		}
+		.user-info{
+			order: 3;
+		}
+    } 
+}

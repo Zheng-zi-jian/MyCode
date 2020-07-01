@@ -1,0 +1,248 @@
+/* 登录页CSS */
+/* 顶部整体 */
+.top-nav-wrap {
+	background-color: #EAEAEA;
+}
+
+/* 顶部导航栏 */
+.top-nav {
+	height: 30px;
+}
+
+/* 顶部导航栏(左侧) */
+.top-nav .top-nav-left {
+	float: left;
+}
+
+/* 顶部导航栏(右侧) */
+.top-nav .top-nav-right {
+	float: right;
+}
+
+/* 顶部导航栏内部浮动 */
+.top-nav .top-nav-left .list01 li,
+.top-nav .top-nav-right .list02 li {
+	float: left;
+	line-height: 30px;
+	margin: 0 5px;
+}
+
+/* 顶部导航栏字体 */
+.top-nav .top-nav-left .list01 a,
+.top-nav .top-nav-right .list02 a {
+	color: #82827F;
+	display: block;
+}
+
+.top-nav .top-nav-left .list01 a:hover,
+.top-nav .top-nav-right .list02 a:hover {
+	color: #ea4a36;
+}
+
+/* 顶部导航栏分栏图标 */
+.top-nav .top-nav-left .list01 .col,
+.top-nav .top-nav-right .list02 .col {
+	color: #BAB5B5;
+}
+
+/* 头部搜索栏 */
+.header-search-wrap {
+	height: 106px;
+}
+
+/* 头部logo */
+.header-search-logo {
+	margin: 28px 0px 0px 66px;
+	float: left;
+	height: 56px;
+}
+
+.header-search-logo a {
+	width: 175px;
+	height: 56px;
+	display: block;
+	background: url(../img/Logo.png) no-repeat;
+	text-indent: -9999px;
+}
+
+/* 头部右侧搜索框 */
+.header-search {
+	margin: 35px 15px 0px 0px;
+	float: right;
+}
+
+/* 搜索框 */
+.header-search #search {
+	width: 488px;
+	height: 30px;
+	padding: 2px 10px;
+	float: right;
+	border: 2px solid #ea4a36;
+}
+
+/* 搜索按钮 */
+.header-search #btn {
+	width: 70px;
+	height: 30px;
+	padding: 0;
+	border: 2px solid #ea4a36;
+	float: right;
+	color: white;
+	background-color: #ea4a36;
+}
+
+.header-search a {
+	display: block;
+}
+
+/* 登录主体 */
+.main {
+	height: 475px;
+	background: url(../img/loginbg.png) no-repeat 120px 0px;
+	background-color: #E93854;
+	position: relative;
+}
+
+/* 表单外框 */
+.main .form{
+	width: 340px;
+	height: 340px;
+	position: absolute;
+	top: 50px;
+	right: 190px;
+	background-color: white;
+	padding: 25px;
+}
+
+/* 登录表单 */
+.form form{
+	width: 340px;
+	height: 320px;
+	border: 1px solid #E0E0E0;
+	border-top: none;
+}
+
+/* 表单顶部标题 */
+.login .title span{
+	display: block;
+	float: left;
+	width: 170px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	border:1px solid #E0E0E0 ;
+	border-left: none;
+	border-right: none;
+}
+/* 标题左侧 */
+.login .title span:first-child{
+	width: 169px;
+	border-right:1px solid #E0E0E0 ;
+}
+
+.login .title span:hover{
+	border-top-color:#41AEF1;
+	color: #E12B23;
+}
+
+/* 文本框-密码框 */
+.login #id,
+.login #password{
+	width: 255px;
+	height: 24px;
+	margin-left: 22px;
+	padding-left: 35px;
+}
+
+label span{
+	display: inline-block;
+	width: 30px;
+	height: 28px;
+	color: #E12B23;
+	line-height: 30px;
+	text-align: center;
+	border-right: 1px solid #A9A9A9;
+	margin-left: 5px;
+	position: absolute;
+	left: 43px;
+}
+
+.login label #A{
+	top: 103px;
+}
+
+.login label #B{
+    top: 149px;
+}
+
+/* 自动登录 */
+.login #autologin{
+	margin-left: 23px;
+}
+
+/* 忘记密码 */
+.login #wjmm{
+	margin-left: 165px;
+}
+
+.login #wjmm:hover a{
+	color: red;
+}
+
+/* 登录按钮 */
+.login #login-btn{
+    width: 300px;
+    height: 28px;
+    margin-top: 20px;
+    margin-left: 20px;
+	background-color: #E12B23;
+	color: white;
+	font-size: 16px;
+	border: none;
+}
+
+/* 字体图标 */
+.login .icon-list{
+	position: absolute;
+	top: 290px;
+	left: 50px;
+	font-size: 16px;
+}
+
+.login .icon-list li{
+	float: left;
+}
+
+/* 立即注册 */
+.login #ljzc{
+	display: block;
+	margin-top: 45px;
+	margin-left: 255px;
+	font-size: 14px;
+	color: #A4B2B9;
+}
+
+.login #ljzc:hover{
+	color: red;
+}
+
+/* 底部 */
+
+.footer table{
+	width: 820px;
+	margin: 20px auto;
+	text-align: center;
+}
+.footer table tr:first-of-type  td{
+	height: 20px;
+	border-right: 1px solid #E8E8E8;
+}
+
+.footer table tr:first-of-type  td a{
+	display: block;
+}
+
+.footer table tr:nth-child(2)  td{
+	height: 45px;
+}

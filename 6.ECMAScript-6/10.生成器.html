@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数</title>
+    <script>
+        window.onload = function () {
+            /*
+                生成器函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同
+
+                1.生成器的创建方式:
+                    function * fun (){};  - * 的位置在function 和 fun之间即可
+
+                2.生成器函数返回的结果是迭代器对象,调用迭代器对象的next方法可以得到yield语句后的值.
+
+                3.yield相当于函数的暂停标记,也可以认为是函数的分隔符,每调用一次next方法,执行一段代码.
+
+            */
+
+            //生成器函数 * 的位置只要早function 与函数名之间即可,yield 是代码执行分割器
+            function* gen() {
+                //生成器函数内部可以使用普通代码
+                console.log("2015开始");
+                console.log("2018结束");
+                yield "项城一高";
+                console.log("2018开始");
+                console.log("2021结束");
+                yield "黄河水利";
+            }
+            let result = gen(); //调用生成器函数,返回迭代器对象
+            //调用迭代器对象的next方法可以得到yield语句后的值.
+            console.log(result.next()); //2015开始2018结束{value: "项城一高", done: false}
+            console.log(result.next()); //2018开始2021结束{value: "黄河水利", done: false}
+            console.log(result.next()); //{value: undefined, done: true}
+            console.log('-----------------------------------------');
+
+
+
+            //---------------生成器函数参数-------------------------------
+            function* gen2(arg) {
+                console.log(arg);
+
+                let res1 = yield 111;
+                console.log(res1);
+
+                let res2 = yield 222;
+                console.log(res2);
+
+                let res3 = yield 333;
+                console.log(res3);
+            }
+            //获取迭代器对象,yield 的语句有返回结果, 返回结果由下一个 next 方法的实参决定
+            let iterator = gen2('AAA');
+            console.log(iterator.next()); // AAA   {value: 111, done: false}
+            console.log(iterator.next('BBB')); // BBB   {value: 222, done: false}
+            console.log(iterator.next('CCC')); // CCC   {value: 333, done: false}
+            console.log(iterator.next('DDD')); // {value: 222, done: false}
+
+
+
+            //---------------案例------------------------------
+            console.log('---异步编程案例1: 1s后输出A;再过2s后输出B;再过3s后输出C-----');
+           /* 方法一:传统模式,如果有大量的的回调函数进行嵌套,回产生回调地狱,不方便代码的阅读和执行
+                setTimeout(() => {
+                    console.log(111);
+                    setTimeout(() => {
+                        console.log(222);
+                        setTimeout(() => {
+                            console.log(333);
+                        }, 3000);
+                    }, 2000)
+                }, 1000); 
+            */
+
+            //方法二:使用生成器函数
+            //创建函数
+            function one() {
+                setTimeout(() => {
+                   console.log('A');
+                    Time.next();
+                }, 1000);
+            }
+
+            function two() {
+                setTimeout(() => {
+                   console.log('B');
+                   Time.next();
+                }, 2000);
+            }
+
+            function three() {
+                setTimeout(() => {
+                   console.log('C');
+                   Time.next();
+                }, 3000);
+            }
+            //创建生成器函数
+            function * time(){
+                yield one();
+                yield two();
+                yield three();
+            }
+
+            //调用获取函数
+            let Time = time();
+            Time.next();
+
+            //-----------------------------------------------------------------------
+            console.log('---异步编程案例2: 模拟获取  用户数据  文章数据  商品数据 -----');
+            //创建需要执行的函数
+            function getUsers() {
+                setTimeout(() => {
+                    let date = "用户ID";
+                    run.next(date);
+                }, 1000);
+            }
+            function getArtal() {
+                setTimeout(() => {
+                    let date = "网页内容";
+                    run.next(date);
+                }, 1000);
+            }
+            function getGoods() {
+                setTimeout(() => {
+                    let date = "商品数据";
+                    run.next(date);
+                }, 1000);
+            }
+            //声明函数生成器
+            function * Run (){
+                let users = yield getUsers();
+                console.log(users);
+                let artal = yield getArtal();
+                console.log(artal);
+                let goods = yield getGoods();
+                console.log(goods);
+            }
+            //获取生成器
+            let run = Run();
+            run.next();
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

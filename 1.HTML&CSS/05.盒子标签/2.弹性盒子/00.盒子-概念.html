@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹性盒子概念</title>
+		<!--
+		--flex(弹性盒子,伸缩盒子)--
+			1.弹性容器(父元素:弹性空间或者弹性容器)
+				要实现弹性盒,必须先将一个元素设置为弹性容器
+				我们通过display来设置弹性容器
+					display:flex 设置为块级弹性容器
+					display:line-flex设置为行内的弹性容器
+			2.弹性元素(子元素: 弹性项或者弹性元素)
+				弹性容器的子元素是弹性元素(弹性项)
+				弹性元素可以同时是弹性容器
+		
+		--设置主轴方向(设置弹性元素的排列方式)--
+			1.主轴:弹性元素的排列方向称为主轴
+			2.侧轴:与主轴垂直方向的轴称为侧轴
+			3.flex-direction指定容器中弹性元素的排列方式
+			属性值:
+				1.主轴是水平方向
+					flex-direction:row;(默认值)    弹性元素在容器中水平(自左向右)排列
+					flex-direction:row-reverse;    弹性元素在容器中水平(自右向左)排列
+				2.主轴是垂直方向
+					flex-direction:column;         弹性元素在容器内垂直(自上向下)排列
+					flex-direction:column-reverse; 弹性元素在容器内垂直(自下向上)排列
+		
+		--弹性元素是否换行--
+			属性:flex-wrap:;
+			属性值:
+				flex-wrap:nowrap;(默认值)不换行,当弹性元素超出父元素宽度时,弹性元素自动压缩宽度
+				flex-wrap:wrap;          换行,当弹性元素超出父元素的宽度时,弹性元素换行
+				flex-wrap:wrap-reverse;  反向换行,上面的行被换到下面
+				
+		--弹性元素在主轴的位置分布--
+			属性:justify-content:;
+			属性值:
+				justify-content:flex-start;    居开始(默认值)
+				justify-content:flex-end;      居结束
+				justify-content:center;:       居中
+				justify-content:space-between; 空白均匀分布带元素间
+				justify-content:space-around;  空白分布到元素的两侧
+				justify-content:space-evenly;  空白分布带元素单侧
+		
+		--弹性元素在侧轴的位置分布(集体)--
+			属性:align-items:;
+			属性值:
+				align-items:stretch;(默认值):弹性元素在不设置宽高的情况下,
+				宽度是内容宽度,高度和父元素一样(如果多行,和当前行的高度一样)
+				align-items:flex-start;    居开始
+				align-items:flex-end;      居结束
+				align-items:center;        居中
+				align-items:baseline;      基线对齐
+			注意:当align-content存在时,align-items不起作用,
+					因为两个属性本身就是矛盾的
+					(align-content:辅轴空白空间分布)
+				align-content:space-between; 元素包含空间
+				align-content:space-around;  空间包含元素
+				align-content:space-evenly;  空间包含(平均空间)元素
+		
+		--弹性元素在侧轴的位置分布(自身)--
+			属性:align-self: ;
+			属性值:
+				align-self:stretch(默认值):弹性元素在不设置宽高的情况下,宽度是内容宽度,高度和父元素一样(如果多行,和当前行的高度一样)
+				align-self:flex-start:居开始
+				align-self:flex-end:居结束
+				align-self:center: 居中
+
+		--弹性元素的排列顺序--
+			order:2 ;
+
+		--弹性元素的增长系数(占的份数)--
+			当父元素有多余的空间时,子元素按照比例进行分配伸展
+				flex-grow: 0;(默认值)
+				flex-grow: 1;
+			 
+		--弹性元素的压缩系数(收缩因子)--
+			当父元素中的空间不足以容纳子元素时,就对子元素进行收缩
+				flex-shrink: 1/2/3;
+				flex-shrink: 0;(关闭容器内元素自动伸缩)
+		
+		--元素的基础长度--
+			flex-basis 指定元素在轴上的基础长度
+				如果主轴是横向的  则该值指定的就是元素的长度
+				如果主轴是纵向的  则该值指定的就是元素的高度
+					1.默认值:
+						flex-basis:auto;
+					2.如果传递一个具体的数值数值,则以该数值为准
+						flex-basis:10px;
+		-->	
+	</head>
+	<body></body>
+</html>

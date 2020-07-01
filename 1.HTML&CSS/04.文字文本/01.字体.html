@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字体样式</title>
+		<style>
+			#font1 {
+				/* 字体颜色 */
+				color: red;
+				
+				/* 字体大小 */
+				font-size: 40px;
+				
+				/* 行高 */
+				line-height: 100px;
+				
+				/* 字体加粗 */
+				font-weight: bold;
+				
+				/* 字体间距 */
+				letter-spacing:10px;
+				
+				/* 单词间距 */
+				/* word-spacing:50px; */
+				
+				/* 字体的风格(斜体) 
+				   font-style: normal;   默认值 
+				   font-style: oblique;  倾斜
+				*/
+				font-style: italic;
+				
+
+				/* font-family:字体族 字体的格式 */
+				
+				/* 衬线字体 */
+				font-family: serif;
+				
+				/* 非衬线字体 */
+				font-family: sans-serif;
+				
+				/* 等宽字体 */
+				font-family: monospace;
+				
+				/* 可以指定多个字体,用逗号隔开,优先使用第一个,当第一个无效,则使用第二个,以此类推. */
+				font-family: 'Courier New', Courier, monosspace;
+				
+				/* 当用户没有页面文字,可以通过此方法直接将文字提供给用户 */
+				font-family: myfont;
+			}
+			/* 自定义字体 */
+			@font-face {
+				font-family: 'myfont';
+				src: url(../0.File/3.Font/4.1/A.TTF);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="font1">
+			您好,已收到您提交的数据!!!
+		</div>
+	</body>
+</html>
+<!--
+	--行高(line-height):行高指的是文字占有的实际高度
+		-单位:px em,也可设置为整数,行高将会是字体的指定的倍数.
+		-行高经常还用来设置文字的行间距 (行间距=行高-字体大小)    
+		-若字体行高和元素高度一样，则单行文字在元素中垂直居中
+		
+	--字体框
+		 字体框就是字体存在的格子，设置font-size实际上就是在设置字体框的高度 
+		 行高会在字体框的上下平均分配
+
+	--font(属性简写)可以设置字体相关的所有属性,行高可省略,若省略,则使用默认值
+	font:font-style font-weight font-size/line-height font-family (font-size和font-family为必写)
+	例子:font: italic bold 50px/2  微软雅黑 ;
+-->

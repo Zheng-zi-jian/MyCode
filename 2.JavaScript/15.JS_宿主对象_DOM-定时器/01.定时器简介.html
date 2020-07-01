@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>定时/延时调用</title>
+    <script>
+        /*
+         *  一、延时调用:
+         *      (1).作用: 开启延时后,当调用一个函数时,函数不会立即执行，而是隔一段时间以后再执行，且只执行一次.
+         *      (2).语法:
+         *              setTimeout(fun, time);
+         *      (3).参数:
+         *              fun,  开始延时的函数
+         * 	            time, 延时的时间(单位毫秒).
+         *      (4).返回值:返回一个Number类型的数据,这个数字用来作为延时器的唯一标识.
+         *      (img).关闭延时调用:clearTimeout(Number);
+         *
+         *  二、定时调用:
+         *      (1).作用:开启定时后,函数会每间隔一段时间执行一次,会重复执行.
+         *      (2).语法:
+         *              setInterval(fun,time);
+         *      (3).参数:
+         *              fun,  开始延时的函数
+         *              time, 延时的时间(单位毫秒).
+         *      (4).返回值:返回一个Number类型的数据,这个数字用来作为定时器的唯一标识.
+         *      (5).关闭定时器:clearInterval(Number);
+         *
+         *  总结:
+         *      (1).延时调用和定时调用的区别:
+         *          延时调用只会执行一次.
+         *          定时调用会执行多次
+         *
+         * 延时调用和定时调用实际上是可以互相代替的，在开发中可以根据自己需要去选择
+         */
+        window.onload = function () {
+            //案例1:实现倒计时:
+
+            //获取开始倒计时按钮
+            var startTime = document.getElementById("startTime");
+            //获取结束倒计时按钮
+            var endTime = document.getElementById("endTime");
+            //获取倒计时数字
+            var count = document.getElementById("count");
+            //获取倒计时数字标签内数字
+            var number = count.innerText;
+            //定时器id
+            var timer;
+            //创建一个变量,储存定时器是否正在运行
+            var ing = false;
+            //监听倒计时开始按钮
+            startTime.addEventListener('click', function (event) {
+                //如果开启了,防止二次开启
+                if (ing) {
+                    return;
+                }
+                ing = true;
+
+                timer = setInterval(function () {
+                    //标签内数字自减
+                    count.innerHTML = number--;
+                    //判断,当倒计时数字等于零时
+                    if (number === 0) {
+                        //关闭定时调用.
+                        clearInterval(timer);
+                    }
+                }, 1000);
+
+            }, false)
+            //监听倒计时结束按钮
+            endTime.addEventListener('click', function (event) {
+                clearInterval(timer);
+            }, false)
+        };
+    </script>
+</head>
+<body>
+<h1 id="count">60</h1>
+<button id="startTime">开始倒计时</button>
+<button id="endTime">结束倒计时</button>
+</body>
+</html>

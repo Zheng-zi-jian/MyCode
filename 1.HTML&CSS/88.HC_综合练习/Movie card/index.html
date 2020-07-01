@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>电影卡片</title>
+		<!-- 引入重置 -->
+		<link rel="stylesheet" href="./css/reset.css" />
+		<!-- 引入图标字体 -->
+		<link rel="stylesheet" href="font/iconfont.css" />
+		<style>
+			/* 设置外层容器 */
+			.outer {
+				width: 240px;
+				margin: 200px auto;
+				box-shadow: 0 0 10px rgba(0,0,0,.3);
+				
+			}
+			/* 设置图片 */
+			.inder-top img{
+				width: 100%;
+				vertical-align: bottom;
+			}
+			.inder-cen{
+				padding: 0 18px;
+			}
+			.inder-cen .title{
+				font-family: "微软雅黑";
+				font-size: 18px;
+				color: #717171;
+				margin-top:18px;
+				margin-bottom: 15px;
+			}
+			.inder-cen .catcegory{
+				font-size: 14px;
+				color: #acaaaa;
+			}
+			.inder-cen .catcegory i{
+				margin-left: 4px;
+				margin-right: 7px;
+				font-size: 12.5px;
+			}
+			.inder-cen .intor{
+				margin-top: 16px;
+				margin-left: 4px;
+				margin-bottom: 18px;
+				line-height: 20px;
+				font-family: "微软雅黑";
+				font-size: 13px;
+				color: #717171;
+			}
+			.inder-bot{
+				height: 46px;
+				border-top: solid 1px #E9E9E9;
+			}
+			.inder-bot .start{
+				margin-top: 10px;
+				margin-left: 18px;
+			}
+			.inder-bot li>i{
+				float: left;
+				font-size: 30px;
+				margin-right:-10px ;
+				
+			}
+			.facebook  i{
+				float: right;
+				font-size: 20px;
+				margin-right: 15px;
+				color:#D4D5D4 ;
+				margin-top: 5px;
+			}
+			.start #height{
+				color: #B8C340;
+			}
+		
+			
+		</style>
+	</head>
+	<body>
+		<!-- 创建一个外部容器 -->
+		<div class="outer">
+			<!-- 图片容器 -->
+			<div class="inder-top">
+				<img src="img/1.jpg" />
+			</div>
+			<!-- 主要内容容器 -->
+			<div class="inder-cen">
+				<h3 class="title">
+					Animation films
+				</h3>
+				<h4 class="catcegory">
+					<span><i class="iconfont">&#xe600;</i></span>
+					Animations
+				</h4>
+				<p class="intor">
+					Lorem lpsum is simply dummy<br>
+					text of the printing & typesetting<br>
+					industry.
+				</p>
+			</div>
+			<!-- 底部评分容器 -->
+			<div class="inder-bot">
+				<!-- 创建星星 -->
+				<ul class="start">
+					<li id="height"><i class="iconfont">&#xe601;</i></li>
+					<li id="height"><i class="iconfont">&#xe601;</i></li>
+					<li><i class="iconfont">&#xe601;</i></li>
+					<li><i class="iconfont">&#xe601;</i></li>
+				</ul>
+				<span class="facebook"><i class="iconfont">&#xe60a;</i></span>
+			</div>
+		</div>
+	</body>
+</html>

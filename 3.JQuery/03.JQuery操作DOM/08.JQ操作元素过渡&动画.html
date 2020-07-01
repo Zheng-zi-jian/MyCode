@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery效果1</title>
+    <style>
+        .box1 {
+            width: 150px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        .box2 {
+            width: 270px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            left: 200px;
+            top: 33px;
+            display: none;
+        }
+
+        .box3 {
+            width: 150px;
+            height: 300px;
+            background-color: pink;
+            display: none;
+            position: absolute;
+            left: 620px;
+            top: 33px;
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: pink;
+            position: absolute;
+            left: 920px;
+            top: 33px;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 400px;
+            left: 300px;
+            background: red;
+            color: #fff;
+        }
+    </style>
+    <script src="../0.File/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //jQuery动画本质 : 在指定时间内不断改变元素样式值来实现的
+            /* 一、--显示/隐藏效果--
+            1. 语法规范  show/hide([speed],[easing],[fn])
+            2. 参数:
+            (1)参数都可以省略,无动画直接显示.
+            (2)speed:速度.三种预定速度(slow nomal fast)或者直接指定毫秒数值
+            (3)easing:用来指定切换效果,默认swing,可选linear
+            (4)fn;回调函数
+             */
+            //显示
+            $('button').eq(0).click(function () {
+                $('.box1').show(1200, function () {
+                });
+            });
+            //隐藏
+            $('button').eq(1).click(function () {
+                $('.box1').hide(1200, function () {
+                });
+            });
+            //切换
+            $('button').eq(2).click(function () {
+                $('.box1').toggle(1200, function () {
+                });
+            });
+            //一般情况下,不添加参数.(默认效果丑陋)
+
+
+            /* 二、--上滑动/下滑动效果--
+            1. 语法规范  slideDown/slideDown()([speed],[easing],[fn])
+            2. 参数:
+            (1)参数都可以省略,无动画直接显示.
+            (2)speed:速度.三种预定速度(slow nomal fast)或者直接指定毫秒数值
+            (3)easing:用来指定切换效果,默认swing,可选linear
+            (4)fn;回调函数
+            */
+            //下滑动slideDown();
+            $('button').eq(4).click(function () {
+                $('.box2').slideDown();
+            });
+            //上滑动slideUp();
+            $('button').eq(5).click(function () {
+                $('.box2').slideUp(500);
+            });
+            //切换滑动slideToggle();
+            $('button').eq(6).click(function () {
+                $('.box2').slideToggle(500);
+            });
+
+
+            /* 三、--淡入/淡出效果--
+            1. 语法规范  fadeToggle([speed],[easing],[fn])
+            2. 参数:
+            (1)参数都可以省略,无动画直接显示.
+            (2)speed:速度.三种预定速度(slow nomal fast)或者直接指定毫秒数值
+            (3)easing:用来指定切换效果,默认swing,可选linear
+            (4)fn;回调函数
+             */
+            //淡入fadeIn()
+            $('button').eq(8).click(function () {
+                $('.box3').fadeIn(1000);
+            })
+            //淡出fadeOut()
+            $('button').eq(9).click(function () {
+                $('.box3').fadeOut(1000);
+            })
+            //切换fadeToggle()
+            $('button').eq(10).click(function () {
+                $('.box3').fadeToggle(800);
+            })
+            //修改透明效果,语法:fadeTo([speed],opacity,[easing],[fn]])
+            //速度和透明度必须写
+            $('button').eq(11).click(function () {
+                $('.box3').fadeTo(1000, 0.5);
+            })
+
+
+            /* 四、--自定义动画animate
+             1. 语法规范  animate(params,[speed],[easing],[fn])
+             2. 参数:
+             (1)params;想要更改的样式属性,以对象形式传递,必须写.
+             (2)speed:速度.三种预定速度(slow nomal fast)或者直接指定毫秒数值
+             (3)easing:用来指定切换效果,默认swing,可选linear
+             (4)fn;回调函数
+             */
+            $('button').eq(13).click(function () {
+                $('.box4').animate({
+                    left: 1200,
+                    top: 400,
+                    opacity: 0.4
+                }, 1200);
+            })
+
+            $('#btn1').click(function () {
+                $('.div1').animate({
+                    'width': '300px'
+                }, 1000).animate({
+                    'height': '300px'
+                }, 1000)
+            });
+
+            $('#btn2').click(function () {
+                $('.div1').stop().animate({
+                    'left': '+=300px'
+                }, 3000)
+            });
+
+            $('#btn3').click(function () {
+                $('.div1').stop().animate({
+                    'left': '-=300'
+                }, 3000)
+            });
+
+            /*
+            *  五、--停止动画--
+            *       (1).停止所有的动画
+            *       (2).停止当前动画，直接开始下一个动画
+            *       (3).停止并结束当前动画，开始下一个动画
+            * */
+
+            $('#btn4').click(function () {
+                //参数1：是否清空动画队列  参数2：当前动画是否执行完成
+                //$('.div1').stop(false,false); //立即停止当前动画 在当前位置执行下一个动画  不清空动画队列
+                //$('.div1').stop(true,false);  //立即停止当前动画  清空动画队列 停留在原地 之后的不执行
+                //$('.div1').stop(true,true);   //立即完成当前动画直接跳到当前动画结束位置 清空动画队列
+                $('.div1').stop(false, true);   //立即完成当前动画直接跳到当前动画结束位置 不清空动画队列
+            })
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <button>- - - - - - - -</button>
+    <button>下拉滑动</button>
+    <button>上拉滑动</button>
+    <button>切换滑动</button>
+    <button>- - - - - - - -</button>
+    <button>淡入效果</button>
+    <button>淡出效果</button>
+    <button>淡入淡出切换</button>
+    <button>修改透明度</button>
+    <button>- - - - - - - -</button>
+    <button>动起来</button>
+</div>
+<div class="box1">隐藏/显示</div>
+<div class="box2">滑动</div>
+<div class="box3">淡入/淡出</div>
+<div class="box4">动画</div>
+
+<button id="btn1">逐渐扩大</button>
+<button id="btn2">向右移动</button>
+<button id="btn3">向左移动</button>
+<button id="btn4">停止动画</button>
+
+<div class="div1">
+    爱在西元前，学在尚硅谷
+</div>
+</body>
+</html>

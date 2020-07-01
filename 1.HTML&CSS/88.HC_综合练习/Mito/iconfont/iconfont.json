@@ -1,0 +1,23 @@
+{
+  "id": "1671258",
+  "name": "meitu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1764601",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "7904567",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    }
+  ]
+}

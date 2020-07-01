@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画</title>
+		<!-- 动画,类似过渡 实现一些动态效果   -->
+		<style>
+			.box{
+				width: 650px;
+				height: 400px;
+				background-color: #00FFFF;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background-color: #0000FF;
+				/* 元素实现效果关键帧的名字 */
+				animation-name: first;
+				/* 动画的实现(时序) */
+				animation-timing-function: linear;
+				/* 动画的实现时间 */
+				animation-duration: 2s;
+				/* 动画执行的次数 */
+				/* 无限次  animation-iteration-count: infinite; */
+				animation-iteration-count: 2;
+				/* 执行动画的方向  animation-direction:
+				 可选值:
+				 animation-direction: normal;默认值1>2
+				 animation-direction: reverse;反方向2>1
+				 animation-direction: alternate;1>2>1
+				 animation-direction: alternate-reverse;2>1>2
+				*/
+			    animation-direction: normal;
+				/* 设置动画的执行状态:正常  停止 */
+				/* 停止 */
+				/* animation-play-state: paused; */
+				/* 正常 */
+				 animation-play-state: running;
+				 /* 动画的填充方式 */
+				 /* animation-fill-mode: none;     默认值  动画结束归为原位
+				 animation-fill-mode: forwards;   动画结束停在结束位置
+				 animation-fill-mode: backwards;   动画延迟等待时就会回到原位
+				 animation-fill-mode:both;     结合forwards  backwards */
+				 animation-fill-mode: forwards;
+				
+				/* animation:简写; */
+			}
+			.box1:hover{
+				animation-play-state: paused;
+			}
+			/* 设置关键帧 */
+			@keyframes first{
+				/* 动画的开始 */
+				from{margin-left: 0;}
+				/* 动画的结束 */
+				to{margin-left: 550px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1"></div>
+		</div>
+	</body>
+</html>

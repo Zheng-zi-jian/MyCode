@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+    <script>
+        window.onload = function () {
+            /**
+             * 一、严格模式的声明
+             *      1.在全局中声明
+             *          "use strict";
+             *      2.在函数内声明
+             *          function fun (){ "use strict" }
+             *      3.IIFE
+             *          (function(){"use strict";})();
+             * 
+             * 二、严格模式的特性
+             *      1.不允许使用未声明的变量,必須使用关键字声明的变量
+             *          var school = "shangguigu";
+             * 
+             *      2.函数内部的this不指向Windows
+             * 
+             *      3.eval在严格模式下会创建自己的作用域 (eval 是一个函数, 将参数字符串进行解析并执行);
+             * 
+             *      4.对象不能有重复的属性
+             *          var school = {name: '尚硅谷',name: 'ATGUIGU'}
+             * 
+             *      5.函数不能有同名的形参
+             *          function add(a, a, a) {}
+             * 
+             *      6.新增了一些保留字-public.
+             */
+
+            "use strict";
+
+            alert("今天天气不错!!");
+            eval("alert('今天天气不错!哦哦哦')");
+            eval("var school = 'ATGUIGU';");
+            console.log(school);//报错
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

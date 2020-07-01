@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			html {
+				perspective: 800px;
+			}
+		/*
+		通过旋转可以使元素沿着x y 或 z旋转指定的角度
+		transform:rotateX()
+		transform:rotateY()
+		transform:rotateZ()
+		*/
+			#P1,#P2,#P3 {
+				width: 160px;
+				height: 160px;
+				padding: 5px;
+				background-color: #bfa;
+				margin: 20px auto;
+				transition: 2s;
+			}
+
+			body #P1:hover { 
+				transform: rotateX(120deg);
+				/* 是否显示元素的背面 */
+				backface-visibility: visible;
+			}
+			body #P2:hover {
+				transform: rotateY(120deg);
+				transform: rotateY(180deg) translateZ(400px);
+				backface-visibility: hidden;
+			}
+			body #P3:hover {
+				transform: rotateZ(120deg);
+			}
+			/* transform: rotateZ(.25turn); */
+			/* transform: translateZ(400px) rotateY(180deg) ; */
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div id="P1">
+				<img src="../0.File/2.Img/8.6.jpg" alt="">
+			</div>
+			<div id="P2">
+				<img src="../0.File/2.Img/8.6.jpg" alt="">
+			</div>
+			<div id="P3">
+				<img src="../0.File/2.Img/8.6.jpg" alt="">
+			</div>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式的定义和创建</title>
+		<script>
+			/*
+			* --正则表达式--
+			* 	1.作用:用于定义一些字符串的规则，来检查一个字符串是否符合规则
+			* 	2.创建方式:
+			* 		(1)使用字面量来创建正则表达式
+			* 				语法	: RegExp(pattern [, flags]);
+			* 		(2)使用构造函数来创建正则表达式
+			* 				语法	: new RegExp(pattern [, flags]);
+			* 	3.参数:
+			* 		(1)pattern 正则表达式规则
+			* 		(2)flags   匹配模式
+			* 			如果指定，标志可以具有以下值的任意组合：
+			*				g   全局匹配;找到所有匹配，而不是在第一个匹配后停止
+			* 				i	忽略大小写
+			* 	4.返回值:布尔值
+			*
+			* 	img.使用typeof检查一个正则对象时，会返回 "object"
+			*
+			*/
+			// 字面量方法举例
+			var reg = /Ab/i  				 //定义正则
+			var result = reg.test("ababab"); //使用正则表达发检查一个字符串是否符合正则标准,并返回结果
+			console.log(result); 			 //打印结果 返会true
+
+			// 构造函数方法举例
+			var reg = new RegExp("Ab", "i");  //定义正则
+			var result = reg.test("ababab");  //使用正则表达发检查一个字符串是否符合正则标准,并返回结果
+			console.log(result); 			  //打印结果 返会true
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

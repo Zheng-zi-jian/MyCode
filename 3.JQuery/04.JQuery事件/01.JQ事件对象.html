@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery事件对象</title>
+    <style>
+        div {
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../0.File/jquery.min.js"></script>
+    <script>
+        $(function () {
+            /* --jQuery事件对象--
+             * (1).事件被触发就会有事件对象产生
+             * (2).element.on(events,[selector],function(even){});
+             * (3).阻止默认行为:event.preventDefault() 或者 return false
+             * (4).阻止冒泡行为:event.stopPropagation();
+             */
+            $('.box').on('click', function (event) {
+                alert(event);
+            })
+
+
+            /* --对象拷贝--
+             * (1). 如果想把某个对象拷贝(合并)给另一个对象使用,可以使用$.exteen()
+             * (2). 语法:$.extend([deep],target,object1,[objectN])
+             * (3). 参数:
+             *       ① deep:如果设置为true为深拷贝,false为浅拷贝
+             *       ② target 要拷贝的目标
+             *       ③ object1 待拷贝到第一个对象的对象
+             */
+            var targetObj = {
+                id: 0,
+                msg: {
+                    sex: '男'
+                }
+            };
+            var obj = {
+                id: 1,
+                name: "andy",
+                msg: {
+                    age: 18
+                }
+            };
+            //浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标对象
+            $.extend(targetObj, obj);
+            console.log(targetObj); // 会覆盖targetObj 里面原来的数据
+            targetObj.msg.age = 20;
+            console.log(targetObj);
+            console.log(obj);
+            //深拷贝把里面的数据完全复制一份给目标对象 如果里面有不冲突的属性,会合并到一起
+            $.extend(true, targetObj, obj);
+            console.log(targetObj); // 会覆盖targetObj 里面原来的数据
+            targetObj.msg.age = 20;
+            console.log(targetObj); // msg :{sex: "男", age: 20}
+            console.log(obj);
+
+        });
+    </script>
+</head>
+<div class="box"></div>
+</body>
+</html>

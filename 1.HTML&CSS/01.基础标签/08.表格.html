@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			table {
+				width: 600px;
+				height: 300px;
+				margin: 0 auto;
+				border: 2px solid black;
+				/* border-collapse: collapse; */
+				border-spacing: 5px 10px;
+			}
+
+			th {
+				border: 1px solid black;
+			}
+
+			td {
+				border: 1px solid black;
+				width: 80px;
+				height: 60px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			1.表格组成部分:
+				table:     表格标签
+				caption:   表格标题
+				thead:     表格头部
+				tbody:     表格主体
+				tfoot:     表格底部
+				th:        表格表头
+				tr:        行标签
+				td:        单元格
+			
+			2.表格修饰:
+				colspan: 夸列合并单元格
+				rowspan: 跨行合并单元格
+				cellspacing:单元格之间的距离
+				cellpadding:单元格内部的距离
+			
+			3.border-collapse: 设置边框的合并
+				可选值 :
+					 separate	默认值。边框会被分开。不会忽略 border-spacing 和 empty-cells 属性。
+					 collapse	如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。
+					 inherit	规定应该从父元素继承 border-collapse 属性的值
+			
+			4.border-spacing: 指定边框之间的距离
+				可选值:	
+					规定相邻单元的边框之间的距离。使用 px、cm 等单位。不允许使用负值。
+					如果定义一个 length 参数，那么定义的是水平和垂直间距。
+					如果定义两个 length 参数，那么第一个设置水平间距，而第二个设置垂直间距。
+					inherit	规定应该从父元素继承 border-spacing 属性的值.
+		 -->
+		<table>
+			<caption>
+				<h2>课程表</h2>
+			</caption>
+			<thead>
+				<tr bgcolor="yellow">
+					<th>项目</th>
+					<!--colspan 横向的合并单元格-->
+					<th colspan="5">上课</th>
+					<th colspan="2">休息</th>
+				</tr>
+				<tr bgcolor="greenyellow">
+					<th>星期</th>
+					<th>星期一</th>
+					<th>星期二</th>
+					<th>星期三</th>
+					<th>星期四</th>
+					<th>星期五</th>
+					<th>星期六</th>
+					<th>星期日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="2">上午</td>
+					<td>语文</td>
+					<td>数据</td>
+					<td>英语</td>
+					<td>生理</td>
+					<td>物理</td>
+					<td>化学</td>
+					<!-- rowspan 纵向的合并单元格 -->
+					<td rowspan="4">休息</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>数据</td>
+					<td>英语</td>
+					<td>生理</td>
+					<td>物理</td>
+					<td>化学</td>
+				</tr>
+
+				<tr>
+					<td rowspan="2">下午</td>
+					<td>语文</td>
+					<td>数据</td>
+					<td>英语</td>
+					<td>生理</td>
+					<td>物理</td>
+					<td>化学</td>
+
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>数据</td>
+					<td>英语</td>
+					<td>生理</td>
+					<td>物理</td>
+					<td>化学</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的遍历</title>
+    <script>
+        var arr = ["A", "B", "C", "D", "E", ""];
+
+        // 方式一: for循环遍历数组.
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // 方式二: for-in来遍历数组,for-in语句会执行多次，数组中有几个元素就会执行几次,每次执行都会将当前的 索引值 赋值给 i.
+        for (var i in arr) {
+            console.log(arr[i]);
+        }
+
+        // 方式三: for-of来遍历数组,for-in语句会执行多次，数组中有几个元素就会执行几次,每次执行都会将当前的 元素值 赋值给 v.
+        for (var v of arr) {
+            console.log(v);
+        }
+
+        /* 方式四: forEach();
+         * 	    作用:遍历数组.每次执行时，浏览器将遍历到的元素以实参形式传递进来,我们可以来定义形参,来读取这些内容
+         *               要一个回调函数作为参数,数组中有几个元素函数就会执行几次;
+         * 		参数:
+         *          callback(value,index,array)浏览器会在回调函数中传递三个参数：
+         *               参数的参数:
+         * 			           第一个参数value，是当前正在遍历的元素
+         * 			           第二个参数index，是当前正在遍历的元素的索引
+         * 			           第三个参数array，是正在遍历的数组
+         */
+        arr.forEach(function (value, index, array) {
+            console.log(index, value);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "id": "1656273",
+  "name": "mi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "561888",
+      "name": "iconfont-angle-right",
+      "font_class": "iconfontangleright",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "703973",
+      "name": "话费充值",
+      "font_class": "huafeichongzhi",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "2710690",
+      "name": "时钟",
+      "font_class": "shizhong",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "3096423",
+      "name": "拦截手机卡",
+      "font_class": "shoujiqia1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "6242458",
+      "name": "转账",
+      "font_class": "zhuanzhang",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "7580139",
+      "name": "楼房",
+      "font_class": "loufang",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "9027886",
+      "name": "F",
+      "font_class": "F",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "561898",
+      "name": "iconfont-iconfontcart",
+      "font_class": "iconfonticonfontcart",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "1667284",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    }
+  ]
+}
