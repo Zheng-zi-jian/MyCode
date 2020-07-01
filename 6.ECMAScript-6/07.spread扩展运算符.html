@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+    <script>
+        window.onload = function () {
+            // 『...』 扩展运算符(展开运算符)是能将『数组』转换为『参数序列』
+
+            //创建一个数组
+            let GuiGU_F4 = ['远哥', '超哥', '峰哥', '强哥'];
+            //创建一个函数
+            function BOYs() {
+                console.log(arguments);
+            }
+            //调用函数
+            console.log(BOYs(...GuiGU_F4)); //Arguments(4) ["远哥", "超哥", "峰哥", "强哥"]
+
+
+            /* 展开数组 */
+            let arr = [1, 2, 3, 4];
+            let newArr = [...arr];
+            console.log(arr); //[1, 2, 3, 4]
+            console.log(newArr); //[1, 2, 3, 4]
+            console.log(arr === newArr); //false
+
+
+            /* 展开对象 */
+            let sOne = {
+                q: '天音波'
+            }
+
+            let sTwo = {
+                w: '金钟罩'
+            }
+
+            let sThree = {
+                e: '天雷破'
+            }
+
+            let sFour = {
+                r: '猛龙摆尾'
+            }
+
+            let sFive = {
+                q: '回音击'
+            }
+
+            let mangseng = {
+                ...sOne,
+                ...sTwo,
+                ...sThree,
+                ...sFour,
+                ...sFive
+            };
+
+            console.log(mangseng); //{q: "回音击", w: "金钟罩", e: "天雷破", r: "猛龙摆尾"}
+
+
+
+            /* 数组的合并 */
+            const kuaizi = ['肖央', '王太利'];
+            const fenghuang = ['曾毅', '玲花'];
+            const zuixuan = [...kuaizi, ...fenghuang]; //数组合并
+            console.log(zuixuan);
+
+
+            /* 数组的克隆 */
+            let arr3 = ['苏有朋', '陈志朋', '吴奇隆'];
+            let newArr3 = [...arr3];
+            console.log(newArr);
+
+
+            /* 将伪数组转为真正的数组 */
+            let divs = document.getElementsByTagName('div');
+            let result = [...divs];
+
+            console.log(divs);
+            console.log(result);
+        }
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

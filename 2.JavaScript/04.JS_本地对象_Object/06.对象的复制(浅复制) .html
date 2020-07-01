@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的复制</title>
+    <script>
+        /*
+         * --复制对象--
+         *   语法:
+         *        Object.assign();
+         *   作用:
+         *        用来将一个或多个对象中的属性复制到另一个对象中（浅复制）
+         *   参数:
+         *        第一个参数：目标对象
+         *        第二及以后的参数：被复制的对象
+         */
+
+        //创建一个对象obj1
+        var obj1 = {
+            name: '孙悟空',
+            age: 18,
+            son: {name: '孙悟饭', age: 3}
+        };
+
+        //对obj1对象进行复制 并用obj2接收
+        var obj2 = Object.assign({}, obj1); // 参数1: 目标对象 ; 参数2: 被复制的对象
+        //打印两个对象
+        console.log(obj1); //原对象:{name: "孙悟空", age: 18, son: {…}}
+        console.log(obj2); //新对象:{name: "孙悟空", age: 18, son: {…}}
+        console.log(obj1 === obj2); //false,两个对象虽然长的一样 但是不是一个对象
+        //修改对象
+        obj2.name = '猪八戒';      //修改obj1
+        obj2.son.name = '猪小戒';  //修改obj2
+
+        //对象的值被修改
+        console.log(obj1); //{name: "孙悟空", age: 18, son: {…}}
+        //浅拷贝,对象的对象不能复制,对象的对象还是obj1的,无论是修改obj1还是obj2,都会对另外一个产生影响
+        console.log(obj2); //{name: "猪八戒", age: 18, son: {…}}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

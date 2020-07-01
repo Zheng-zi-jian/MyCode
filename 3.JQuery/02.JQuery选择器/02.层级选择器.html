@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery层级选择器</title>
+    <script type="text/javascript" src="../0.File/jquery.min.js"></script>
+    <script>
+        /*
+         *  1.后代选择器:  $("A B"); 选择A元素内部的所有B元素选择A元素内部的所有B元素       
+         *  2.子代选择器:  $("A>B"); 选择A元素内部的所有直接子元素B
+         *  3.兄弟选择器:  $("A+B"); 选择紧接在A元素之后同级B元素        
+         *  4.兄弟选择器:  $("A~B"); 选择A元素之后的所有同级B元素
+         */
+
+        $('ul span').css('background', 'pink');   //选中ul下所有的span
+
+        $('ul>span').css('background', 'pink');   //选中ul下所有的子元素span
+
+        $('.box + li').css('background', 'pink'); //选中class为box的下一个li
+
+        $('.box ~ *').css('background', 'pink');  //选中class为box后边所有的兄弟元素
+    </script>
+</head>
+<body>
+<ul>
+    <li>AAAAA</li>
+    <li class="box">BBBBB</li>
+    <li title="hello"><span>CCCCC</span></li>
+    <li title="hello"><span>DDDDD</span></li>
+    <span>EEEEE</span>
+</ul>
+</body>
+</html>

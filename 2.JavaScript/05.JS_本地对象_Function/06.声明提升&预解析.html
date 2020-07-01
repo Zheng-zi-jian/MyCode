@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>声明提升</title>
+    <script>
+        /* --Js代码分为两个阶段：编译阶段和执行阶段--
+         *  在JS中,无论作用域中的声明出现在什么地方，都将在代码本身被执行前首先进行处理。
+         *      我们可以将这个处理过程形象地想象成所有的声明（变量和函数）都会被“移动”到各自作用域的最顶端，这个过程被称为 提升。
+         *
+         *  JS代码在执行前，需要经过一个预解析阶段
+         *      在预解析阶段，JS引擎主要做两件事找到以var和function开头的代码，然后对var声明的变量进行声明，对function声明的函数进行创建.
+         *
+         *  1.声明提升:只有var和function开头的代码会被提升。
+         *
+         *  2.变量的声明提升
+         * 	    使用var关键字声明的变量，会在所有的代码执行之前被声明（但是不会赋值），
+         *
+         *  3.函数的声明提升
+         * 	    (1)使用函数声明形式创建的函数 function 函数名(){};它会在所有的代码执行之前就被创建，
+         *              所以我们可以在函数声明前来调用函数.
+         * 	    (2)使用函数表达式创建的函数，只会提升变量，不会提升函数,所以不能在声明前调用.
+         *
+         *      (3)在函数作用域也有声明提前的特性，使用var关键字声明的变量，会在函数中所有的代码执行之前被声明
+         */
+
+        //案例1:变量的提升
+        console.log("a = " + a);//a = undefined
+        var a = 123;
+        //相当于:
+        //       var a;
+        //       console.log("a = " + a);
+        //       a = 123;
+
+        //案例2:函数的提升(函数声明形式,可以在函数声明前来调用函数)
+        fun();
+        function fun() {
+            console.log("我是一个fun函数");
+        }
+        //相当于:
+        //     function fun() {
+        //           console.log("我是一个fun函数");
+        //     }
+        //     fun();
+
+        //案例3:函数的提升(函数表达式形式,只会提示变量不会提示函数,所以不能在声明前调用)
+        fun2();
+        var fun2 = function () {
+            console.log("我是fun2函数");
+        };
+        //相当于:
+        //     var fun2;
+        //     fun2();
+        //     fun2 = fun() {console.log("我是fun2函数");}
+
+
+
+        //练习1:在函数中,不使用var声明的变量都会成为全局变量
+        var c = 33;
+        function fun5() {
+            d = 100;
+            console.log("c = " + c);
+            c = 10;
+        }
+        fun5();//c = 33
+        console.log("d = " + d);// d = 100;
+
+
+        //练习2:定义形参就相当于在函数作用域中声明了变量
+        var e = 23;
+        function fun6(e) {
+            console.log(e);
+        }
+
+        /* --预解析,案例1--
+           var a = 10;
+           var b = 20;
+           a = 33;
+           b = 44;
+           function fn() {
+               console.log('fn执行了~~~');
+           }
+           fn();
+                (1)预解析：
+                   var a;
+                   var b;
+                   function fn() {
+                       console.log('fn执行了~~~');
+                   }
+                (2)逐行执行代码：
+                   a = 10;
+                   b = 20;
+                   a = 33;
+                   b = 44;
+                   fn();
+       */
+
+
+        /* --预解析,案例2--
+           var a = function () {
+               console.log(2);
+           };
+
+           function a() {
+               console.log(1);
+           }
+           a();
+               (1)预解析：
+                   var a;
+                   function a() {
+                       console.log(1);
+                   }
+               (2)逐行执行代码：
+                   a = function () {
+                       console.log(2);
+                   };
+                   a();//2
+        */
+    </script>
+</head>
+<body>
+</body>
+</html>

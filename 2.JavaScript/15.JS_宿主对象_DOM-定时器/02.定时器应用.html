@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>定时器的应用</title>
+    <style>
+        #s {
+            width: 0;
+            left: 800px;
+            top: 0;
+            height: 1000px;
+            border-left: 1px black solid;
+            position: absolute;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            //获取元素
+            var box = document.getElementById("box");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            //绑定事件
+            btn01.onclick = function () {
+                move(box, 800, 10);
+            };
+
+            btn02.onclick = function () {
+                move(box, 0, 10);
+            };
+            //储存定时器ID
+            var timer;
+            //封装函数:(-参数：obj:执行动画对象;target:目标位置;speed: 方向(正数向右移动，负数向左移动)-)
+            function move(obj, target, speed) {
+                //关闭上一次开启的定时器
+                clearInterval(timer);
+                //获取元素目前的位置
+                var current = parseInt(getStyle(obj, "left"));
+                //判断正负值,决定移动方向.
+                if (current > target) {
+                	speed = -speed;
+                }
+                //设置定时器
+                timer = setInterval(function () {
+                    //获取元素每次移动前的位置
+                    var oldValue = parseInt(getStyle(obj, "left"));
+                    //获取元素每次移动后的位置
+                    var newValue = oldValue + speed;
+
+                    //判断newValue是否大于800
+                    //从800 向 0移动
+                    //向左移动时，需要判断newValue是否小于target
+                    //向右移动时，需要判断newValue是否大于target
+                    if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+                        newValue = target;
+                    }
+
+                    obj.style.left = newValue + "px";
+                    if (newValue == target) {
+                        clearInterval(timer);
+                    }
+                }, 30);
+            }
+
+            //封装方法,获取当前样式,支持低版浏览器
+            function getStyle(obj, name) {
+                if (window.getComputedStyle) {
+                    return getComputedStyle(obj, null)[name];
+                } else {
+                    return obj.currentStyle[name];
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<button id="btn02">向左移动</button>
+
+<button id="btn01">向右移动</button>
+
+
+<div id="box"></div>
+<div id="s"></div>
+</body>
+</html>

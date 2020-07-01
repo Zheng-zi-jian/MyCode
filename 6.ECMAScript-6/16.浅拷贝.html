@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝</title>
+</head>
+
+<body>
+    <script>
+        /* 以下方法均为浅拷贝 */
+
+        //  一、直接拷贝
+        //创建对象
+        let school = {
+            name: "尚硅谷",
+            cities: ['北京', '上海', '深圳']
+        };
+        //复制对象
+        let Newschool = school; //此方法是赋值的应用地址,指向同一个对象,修改一个对象,会影响另外一个对象.为浅拷贝.result
+
+        //  二、数组的复制
+        // 1.concat 数组的拼接  ===>浅复制
+        let arr = [1, 2, 3, {name: "atguigu"}]; //创建数组
+        let newArr = [].concat(arr); //拼接一个空数据,并接收为新数组
+        newArr[3].name = "尚硅谷"; //修改新数组
+        console.log(arr);    //[1,2,3,{name:"尚硅谷"}]
+        console.log(newArr); //[1,2,3,{name:"尚硅谷"}]
+
+
+        // 2.slice  数组的截取  ===>浅复制
+        let arr2 = [1, 2, 3, {name: "atguigu"}];
+        let newArr2 = arr2.slice(0);
+        newArr2[3].name = "尚硅谷";
+        console.log(arr2);      //[1,2,3,{name:"尚硅谷"}]
+        console.log(newArr2);   //[1,2,3,{name:"尚硅谷"}]
+
+
+        // 3.扩展运算符         ===>浅复制
+        let arr3 = [1,2,3, {name:"atguigu"}];
+        let newArr3 = [...arr3];
+        newArr3[3].name = "尚硅谷";
+        console.log(arr3);       //[1,2,3,{name:"尚硅谷"}]
+        console.log(newArr3);    //[1,2,3,{name:"尚硅谷"}]
+
+
+        // 三、对象的复制        ===>浅复制
+        let tuanhuo = {
+            name: '尚硅谷',
+            xueke: ['前端','Java','大数据','运维']
+        };
+
+        let newSchool = Object.assign({}, tuanhuo);
+        newSchool.name = 'ATGUIGU';
+        newSchool.xueke[0] = 'H5';
+        console.log(school);    //{name: "尚硅谷", cities: Array(3)}
+        console.log(newSchool); //{name: "ATGUIGU", xueke: Array(4)}
+    </script>
+</body>
+
+</html>

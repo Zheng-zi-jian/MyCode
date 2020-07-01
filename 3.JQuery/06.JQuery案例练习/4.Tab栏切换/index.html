@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .warp {
+            width: 978px;
+            margin: 100px auto;
+        }
+
+        .list li {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .divs > div {
+            display: none;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            //获取所有的li
+            var $lis = $('.list>li');
+            //获取所有的div
+            var $divs = $('.divs>div')
+            //创建一个变量用来保存点击记录(上一次)
+            var clickindex = 0;
+
+            // 基础版本
+            // $lis.click(function () {
+            //     //获取当前点击的索引
+            //     var index = $(this).index();
+            //     //所有隐藏
+            //     $divs.hide();
+            //     //当前显示
+            //     $divs[index].style.display = 'block';
+            // })
+
+            $lis.click(function () {
+                //获取当前点击的索引
+                var index = $(this).index();
+
+                //进行判断,防止重复点击;
+                if (clickindex === index) {
+                    alert("请不要重复点击!!!")
+                    return;
+                }
+
+
+                //上一个
+                $divs[clickindex].style.display = 'none';
+                $lis[clickindex].style.background = '';
+
+                //当前
+                $divs[index].style.display = 'block';
+                $lis[index].style.background = 'red';
+                //更新索引值
+                clickindex = index;
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+<div class="warp">
+    <ul class="list">
+        <li style="background: red">商品介绍</li>
+        <li>规格与包装</li>
+        <li>售后保障</li>
+        <li>商品评价（50000）</li>
+        <li>手机社区</li>
+    </ul>
+    <div class="divs">
+        <div style="display: block;">
+            商品介绍模块内容
+        </div>
+        <div>
+            规格与包装模块内容
+        </div>
+        <div>
+            售后保障模块内容
+        </div>
+        <div>
+            商品评价（50000）模块内容
+        </div>
+        <div>
+            手机社区模块内容
+        </div>
+    </div>
+</div>
+</body>
+</html>

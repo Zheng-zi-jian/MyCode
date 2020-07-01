@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <script>
+        /*
+            ES6提供了Map的数据结构.他类似于对象,也是键值对的集合.但是"健"的范围不限于字符串,各种类型的值
+                (包括对象)都可以当作健.Map也实现了iterator接口,所以可以使用-扩展运算符-和-for of-进行遍历
+
+            Map的属性和方法
+            (1)size 返回Map的元素个数
+            (2)set  新增一个新元素,返回当前Map
+            (3)get  返回键名对象的键值
+            (4)has  检测Map中是否包含某个元素,返回boolean值
+            (5)clear清空集合.        
+        
+        */
+        //创建一个Map
+        let M = new Map();
+
+        // set 添加方法
+        M.set('school','黄河水利');
+        
+        let key = {name:'atguigu'};
+        M.set(key,['北京','上海','深圳']);
+
+        // get 获取方法
+        let school = M.get('school');
+        console.log(school);//黄河水利
+        let cities = M.get(key);
+        console.log(cities);// ["北京", "上海", "深圳"]
+
+        // has 检测方法 返回布尔值
+        M.has('school');
+
+        // clear 清空
+        M.clear();
+
+        //遍历
+        for(let v of M){
+            console.log(v);
+        } 
+    </script>
+</body>
+</html>

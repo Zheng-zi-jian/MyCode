@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>对象的定义</title>
+    <script type="text/javascript">
+        /**
+         *   - Object 对象
+         *      对象的定义:对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性。
+         *
+         *      在JS中,如果我们想要表示一个人的信息.
+         *          人的信息有:（name gender age）我们可以声明变量来储存人的所有信息:
+         *              var name = "孙悟空";
+         *              var gender = "男";
+         *              var age = 18;
+         *      但是,如果使用基本数据类型的数据，我们所创建的变量都是独立，不能成为一个整体。
+         *
+         *  - 比较两个对象是否相等
+         *      使用全等比较两个对象时，比较的是内存地址.
+         *          若内存地址相同，会返回true;
+         *          若内存地址不同,则会返回false.
+         */
+        var o = {};
+        var p = {};
+        console.log(o === p);
+    </script>
+</head>
+<body>
+</body>
+</html>

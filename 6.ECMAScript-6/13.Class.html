@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <!-- 
+        ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，
+            作为对象的模板。通过class关键字，可以定义类。
+        
+        (1) class声明类
+        (2) constructor 定义构造函数初始换
+        (3) extends 子类继承父类
+        (4) super  调用父级构造方法
+        (5) static 定义静态方法和属性
+        (6) 父类方法可以重写
+     -->
+    <script>
+        // //声明一个类
+        // class Car {
+        //     //构造方法
+        //     constructor(brand,price){
+        //         this.brand = brand;
+        //         this.price = price;
+        //     }
+        //     //声明方法
+        //     run(location){
+        //         console.log(`我可以去${location}!!`);
+        //     }
+        //     //声明静态成员
+        //     static change(){
+        //         console.log('我可以方便出行')
+        //     }
+        // }
+        
+        // Car.change();
+        // //实例对象
+        // let HongQi = new Car('红旗',2000000);
+        // console.log(HongQi);
+        // HongQi.run('北京');
+        // //HongQi.change(); 静态属性
+
+
+
+        // //------------对象的继承------------
+        
+        // //声明一个父类
+        // class Phone{
+        //     constructor(brand,price){
+        //         this.brand = brand;
+        //         this.price = price;
+        //     }
+        //     call(){
+        //         console.log('俺是用来打电话的')
+        //     }
+        // }
+        // //声明一个子类,继承(extends)父类
+        // class SmartPhone extends Phone{
+        //     constructor(brand, price, color, size){
+        //         //调用父类的构造方法
+        //         super(brand,price);
+        //         //子类属性
+        //         this.color = color;
+        //         this.size = size;
+        //     }
+        //     //子类的方法
+        //     photo(){
+        //         console.log("我可以拍照");
+        //     }
+
+        //     learn(){
+        //         console.log("我可以用来学习!!");
+        //     }
+        //     //对父类的方法重写
+        //     call(){
+        //         //子类不能调用父类的同名方法 
+        //         console.log("老款手机已经被淘汰");
+        //     }
+
+        // }
+        // //实例化
+        // let HUAWEI = new SmartPhone ('华为',3999,'black','5.0');
+        // HUAWEI.call();
+        // HUAWEI.photo();
+        // HUAWEI.learn();
+        //------------类的定义------------------
+
+        //定义一个父类(对象)
+        class Car{
+            //定义父类构造方法
+            constructor(brand,color){
+                this.brand = brand;
+                this.color = color;
+            }
+            //定义父类方法
+            run(){
+                console.log('我可以到处跑');
+            }
+            //定义父类静态方法
+            static say(){
+                console.log('我出生于十九世纪末');
+            }
+        }
+        //定义一个子类(对象),继承父类  
+        class WL extends Car {
+            //定义构造方法
+            constructor(brand,color,price,){
+                //调用父类构造方法
+                super(brand,color);
+                //初始化自身
+                this.price = price;
+            }
+            //定义自己的方法
+            strong(){
+                console.log('人们需要什么,我就造什么');
+            }
+            //重写父类
+            run(){
+                console.log('现在我被单双号限制了');
+            }
+        }
+        //实例化
+        let WLHG = new wl('五菱宏光','blue',60000);
+        WLHG.run();
+        WLHG.strong();
+        Car.say();
+
+
+
+        //------------对象的set和get------------
+         class Phone1{
+            get price(){
+                return 200;
+            }
+            set price(newValue){
+                console.log("price 属性被设置了!!");
+            }
+
+            //函数对象属性的get和set控制
+            static get color(){
+                return 'red';
+            }
+
+            static set color(val){
+                console.log("color 属性被设置了!!");
+            }
+        }
+        let s = new Phone1();
+        s.price = 2000;
+        console.log(s.price);
+
+        Phone1.color = "black";
+        console.log(Phone1.color);
+    </script>
+</body>
+</html>

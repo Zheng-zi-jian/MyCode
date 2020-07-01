@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>俄罗斯方块</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #ADFF2F;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //设置初始速度
+            var speed = 10;
+            //声明一个变量,用来保存哪一个按键按下
+            var dir = false;
+            //监听鼠标按下
+            document.addEventListener('keydown', function (event) {
+                //获取赋值按下的健
+                dir = event.key;
+                //改变移动速度,设置加速度
+                //如果监测到ctry健按下移动速度加块
+                if (event.ctrlKey) {
+                    speed = 20;
+                } else {
+                    speed = 10;
+                }
+            }, false)
+            //监听鼠标抬起
+            document.addEventListener('keyup', function () {
+                if (dir === event.key) {
+                    dir = false;
+
+                }
+            }, false);
+
+            //开启一个定时器,控制移动速度
+            setInterval(function () {
+                switch (dir) {
+                    case "ArrowUp":
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case "ArrowDown":
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+                    case "ArrowLeft":
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case "ArrowRight":
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                }
+            }, 30);
+        };
+    </script>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+</html>

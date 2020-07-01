@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            Arr.slice();
+            作用:会创建一个新的当前数组(浅复制）
+
+            浅复制(浅拷贝),表示只对对象中的属性进行复制，如果对象的属性还是一个对象，不会对其复制
+            深复制(深拷贝),指不仅复制对象本身，也会复制其对象属性（性能差）
+          */
+        //案例一:
+        //创建一个数组arr,再创建一个arr数组的副本arr2
+        var arr1 = [3,4,5,6,7];
+        var arr2 = arr1.slice(); //调用slice()方法，不传任何参数，则会创建一个当前数组的浅复制
+
+        console.log(arr1+'');        // 3,4,img,6,7
+        console.log(arr2+'');        // 3,4,img,6,7
+        console.log(arr1 === arr2);  // false
+
+        arr2[0] = 10;         //修改数组
+        console.log(arr2+''); //原数组:3,4,img,6,7 修改后:10,4,img,6,7
+
+        //案例二:
+        //创建一个数组a 包含一个对象
+        var a = [1,2,{name:'孙悟空'}];
+
+        //对数组a进行拷贝
+        var b = a.slice(); // 对a进行浅复制
+        a[2].name = '猪八戒';  //修改数组中的对象
+
+        console.log(a[2].name+''); //原数组:猪八戒
+        console.log(b[2].name+''); //修改后:猪八戒
+        console.log(a === b);
+
+        // 结论:  浅拷贝成的新的数组   数组中的对象就是就数组中的对象   无论修改旧数组中的对象还是新数组中的对象  都会对另外一个产生影响
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

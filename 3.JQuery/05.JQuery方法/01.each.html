@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../0.File/jquery.min.js"></script>
+    <script>
+        $(function () {
+            /* 一、遍历元素,给同一类元素做不同的操作
+			 *		(1)语法:$.each(object, [callback]);
+			 *		(2)参数:
+			 *				①object:需要例遍的对象或数组。
+			 *				②callback:每个成员/元素执行的回调函数(回调函数拥有两个参数)。
+			 *				    A.第一个为对象的成员或数组的索引，
+			 *				    B.第二个为对应变量或内容。
+			 *		(3)通用例遍方法，可用于例遍对象和数组。
+			 *		(4)不同于jQ对象的 $().each() 方法，此方法可用于例遍任何对象。
+			 *		(5)如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。
+			 */
+            //例遍数组，同时使用元素索引和内容。
+            var array = [0, 1, 2];
+            $.each(array, function (i, n) {
+                console.log("Item #" + i + ": " + n);
+            });
+
+            //例遍对象，同时使用成员名称和变量内容。
+            var object = {name: "John", lang: "JS"}
+            $.each(object, function (i, n) {
+                console.log("Name: " + i + ", Value: " + n);
+            });
+
+
+            var arr = ["red", "green", "blue"];
+            var sum = 0;
+            $('div').each(function (index, domEle) {
+                //第一个参数,一定是索引号,可以自己指定索引号名称.
+                console.log(index);
+                //第二个元素,一定是dom元素对象.
+                console.log(domEle);
+
+                //练习1-遍历,把div设置成不同的颜色
+                //(1),设置一个数组
+                //(2),遍历设置
+                $(domEle).css('color', arr[index]);
+
+                //练习2-把div内的数字相加
+                sum += parseInt($(domEle).text());
+            });
+            console.log(sum); //6
+
+
+
+
+            var person = {
+                name:'wokong',
+                age:18
+            };
+            var arr = [9,11,43,17,6,20];
+            //  $.each(遍历目标，回调函数（索引(键)，值）)
+            $.each(arr,function (k,v) {
+                console.log(k,v)
+            });
+            console.log($.type($()));
+            console.log($.isFunction());
+            console.log($.isArray(arr));
+            var json1 = '{"username":"bajie","age":18}';
+            //  var json2 = "{'username':'bajie','age':18}";
+            //   用来把json数组或者json对象的字符串  转换成正常的对象或者数组
+            console.log($.parseJSON(json1));
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

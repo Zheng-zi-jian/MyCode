@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的解构赋值</title>
+    <script>
+        window.onload = function () {
+            /* ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。 */
+
+            //数组的解构赋值
+            const DB_F4 = ['小沈阳', '刘能', '宋小宝', '赵四'];
+            let [xiao, liu, song, zhao] = DB_F4;
+            console.log(xiao);
+            console.log(liu);
+            console.log(song);
+            console.log(zhao);
+            console.log([xiao, liu, song, zhao]);
+
+
+            //对象的解构赋值,结构对象的时候, 名字一定要与对象的属性名保持一致
+            let GDD = {
+                name: '郭德纲',
+                age: 50,
+                say: function () {
+                    console.log('我的徒弟有：云鹤九霄，龙腾四海');
+                }
+            }
+            let {
+                name,
+                age,
+                say
+            } = GDD;
+            console.log(name);
+            console.log(age);
+            GDD.say();
+
+
+            //复杂结构赋值
+            let wangfei = {
+                singer: '王菲',
+                songs: ['红豆', '流年', '暧昧'],
+                history: {
+                    first: '窦唯',
+                    second: '李亚鹏',
+                    third: '谢霆锋'
+                }
+            };
+            let {
+                singer,
+                songs: [a, b, c],
+                history: {
+                    first,
+                    second,
+                    third
+                }
+            } = wangfei;
+            console.log(a, b, c);
+            console.log(first, second, third);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
