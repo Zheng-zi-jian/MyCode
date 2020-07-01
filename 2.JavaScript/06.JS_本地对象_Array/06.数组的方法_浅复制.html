@@ -16,12 +16,12 @@
         var arr1 = [3,4,5,6,7];
         var arr2 = arr1.slice(); //调用slice()方法，不传任何参数，则会创建一个当前数组的浅复制
 
-        console.log(arr1+'');        // 3,4,5,6,7
-        console.log(arr2+'');        // 3,4,5,6,7
+        console.log(arr1+'');        // 3,4,img,6,7
+        console.log(arr2+'');        // 3,4,img,6,7
         console.log(arr1 === arr2);  // false
 
         arr2[0] = 10;         //修改数组
-        console.log(arr2+''); //原数组:3,4,5,6,7 修改后:10,4,5,6,7
+        console.log(arr2+''); //原数组:3,4,img,6,7 修改后:10,4,img,6,7
 
         //案例二:
         //创建一个数组a 包含一个对象

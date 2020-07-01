@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/myLib.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    //   如果有两个库都有$ 就存在冲突
+    //    jQuery可以释放$的使用权，让另外一个库正常使用，此时jQuery就只能使用jQuery了
+    //    jQuery.noConflict()    解决$命名冲突
+    jQuery.noConflict();
+    $();
+    jQuery(function () {
+        alert('我是jQuery')
+    });
+</script>
+</body>
+</html>

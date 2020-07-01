@@ -71,6 +71,42 @@
         var obj2 = outer2(); //外部函数每调用一次就会产生一个闭包，
         obj2.inner(); //  inner  -> 1
         obj2.inner2();//  inner2 -> 2
+
+        //案例4
+        function fun() {
+            var a = 0;
+            function inner() {
+                a++;
+                console.log(a)
+            }
+            inner();
+            inner();
+            inner();
+        }
+        fun();
+        fun();
+        fun();
+        console.log("-----------------------------");
+
+
+        //案例5
+        function fun1() {
+            var a = 0;
+            function inner1() {
+                a++;
+                console.log(a)
+            }
+            return inner1;
+        }
+        var result = fun1();
+        result();
+        result();
+        result();
+        console.log("-----------------------------");
+        var result1 = fun1();
+        result1();
+        result1();
+        result1();
     </script>
 </head>
 <body>

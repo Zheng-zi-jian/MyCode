@@ -74,19 +74,21 @@
         //创建一个对象
         var obj5 = {t: fn1}
         //定义一个函数
-        function fn1(a, b) {console.log('函数执行了，this是：', this + 'a =', a + 'b =', b);}
+        function fn1(a, b) {
+            console.log('函数执行了，this是：', this + 'a =', a + 'b =', b);
+        }
 
         //正常调用
         fn1();    // 函数执行了~~，this是: Window  a = undefinedb = undefined
         obj5.t(); // 函数执行了~~，this是: Objiect a = undefinedb = undefined
 
         // 使用call()方法修改.并传参
-        fn1.call(obj5);      // 修改this指向obj5    函数执行了，this是： [object Object] a = undefinedb = undefined
-        obj5.t.call(window); // 修改this指向window  函数执行了，this是： [object Window] a = undefinedb = undefined
-        fn1.call(obj5, 'haha', 'heihei'); //函数执行了，this是： [object Object]a = hahab = heihei
-
+        fn1.call(obj5);                   // 修改this指向obj5    函数执行了，this是： [object Object] a = undefinedb = undefined
+        obj5.t.call(window);              // 修改this指向window  函数执行了，this是： [object Window] a = undefinedb = undefined
+        // 使用call()方法修改.并传参
+        fn1.call(obj5, 'haha', 'heihei');        //函数执行了，this是： [object Object]a = haha b = heihei
         // 使用apply()方法修改.并传参
-        obj5.t.apply(obj5, [123, 456, 789, 999]);
+        obj5.t.apply(obj5, [123, 456, 789, 999]);//函数执行了，this是： [object Object]a = 123  b = 456
 
         //案例4:为一个函数绑定一个this
         var obj6 = {name: '孙悟空'}

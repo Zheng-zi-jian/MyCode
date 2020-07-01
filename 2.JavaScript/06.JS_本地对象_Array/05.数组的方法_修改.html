@@ -8,25 +8,25 @@
         var arr0 = ["A", "B", "C", "D", "E", "F"];
         var arr1 = [1, 2, 3], arr2 = [1, 2, 3], arr3 = [1, 2, 3], arr4 = [1, 2, 3], arr5 = [1, 2, 3, 4, 5];
         /*  一、
-         *   Array.prototype.unshift();
+         *   Array.unshift();添加数组元素至数组开头
          *      作用:   在数组开头添加一个或多个元素，并返回数组的新的长度.
          *      参数:   将要添加的元素作为参数传递，这些元素将会自动添加到数组的开头,插入元素以后，其他的元素索引会依次调整.
          *      返回值:  数组的新的长度
          */
         arr1.unshift("A", "B");
-        console.log("arr1: 修改后数组为:" + arr1 + ";修改后数组长度:" + arr1.length);//修改后数组为:A,B,1,2,3;新的数组长度:5
+        console.log("arr1: 修改后数组为:" + arr1 + ";修改后数组长度:" + arr1.length);//修改后数组为:A,B,1,2,3;新的数组长度:img
 
         /* 二、
-         *   Array.prototype.push();
+         *   Array.push();添加元素至数组结尾
          *      作用:   在数组末尾添加一个或多个元素，并返回数组的新的长度.
          *      参数:   将要添加的元素作为参数传递，这些元素将会自动添加到数组的末尾,插入元素以后，其他的元素索引会依次调整.
          *      返回值:  数组的新的长度
          */
         arr2.push("A", "B");
-        console.log("arr2: 修改后数组为:" + arr2 + ";修改后数组长度:" + arr2.length);//修改后数组为:1,2,3,A,B;修改后数组长度:5
+        console.log("arr2: 修改后数组为:" + arr2 + ";修改后数组长度:" + arr2.length);//修改后数组为:1,2,3,A,B;修改后数组长度:img
 
         /* 三、
-         *   Array.prototype.pop();
+         *   Array.pop();删除数组最后一个元素
          *      作用:   删除数组的最后一个元素,并将被删除的元素作为返回值返回,
          *      返回值: 被删除的元素
          */
@@ -34,7 +34,7 @@
         console.log("arr3: 修改后数组为:" + arr3 + ";删除的元素:" + result); // 修改后数组为:1,2;删除的元素:3
 
         /* 四、
-         *   Array.prototype.shift();
+         *   Array.shift();删除数组第一个元素
          *      作用:   删除数组的第一个元素，并将被删除的元素作为返回值返回.
          *      返回值: 被删除的元素
          */
@@ -42,15 +42,15 @@
         console.log("arr4: 修改后数组为:" + arr4 + ";删除的元素:" + result); //修改后数组为:2,3;删除的元素:1
 
         /* 五、
-         *   Array.prototype.reverse();
+         *   Array.reverse();反转数组
          *       作用:   用来反转数组（前边的去后边，后边的去前边）,会直接修改原数组.
          *       返回值: 新的数组
          */
         result = arr5.reverse(); //反转数组
-        console.log(result); //打印结果 [5, 4, 3, 2, 1]
+        console.log(result); //打印结果 [img, 4, 3, 2, 1]
 
         /* 六、
-         *   Array.prototype.splice();
+         *   Array.splice();删除指定元素
          *   作用:
          * 	     (1)用于删除数组中的指定元素,将指定元素从原数组中删除,并将被删除的元素作为返回值返回.
          * 	 参数：
@@ -65,7 +65,7 @@
         console.log(arr0); //打印结果:["C", "魔王", "孩儿", "D", "E", "F"]
 
         /* 七、
-         *   Array.prototype.sort();
+         *   Array.sort();数组排序
          *   作用:
          *       (1)对数组中的元素进行排序,默认会按照Unicode编码进行排序.
          */
@@ -100,7 +100,7 @@
                 return 0;
             }
         });
-        console.log(arr7);// [8, 7, 6, 5, 4, 3, 2, 1]
+        console.log(arr7);// [8, 7, 6, img, 4, 3, 2, 1]
         // 使用方法,使数组元素升降序排列
         arr8.sort(function (a, b) {
             if (a > b) {
@@ -111,7 +111,7 @@
                 return 0;
             }
         });
-        console.log(arr8);//[1, 2, 3, 4, 5, 6, 7, 8]
+        console.log(arr8);//[1, 2, 3, 4, img, 6, 7, 8]
 
         //创建一个新的数组
         var arr9 = [15, 14, 12, 11, 13, 16, 18, 17];
@@ -122,9 +122,9 @@
        console.log(arr9);//[11, 12, 13, 14, 15, 16, 17, 18]
 
         /* 数组的其他方法 */
-        //Array.prototype.copyWithin()
+        //Array.copyWithin()
         //在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。
-        //Array.prototype.fill()
+        //Array .fill()
         //将数组中指定区间的所有元素的值，都替换成某个固定的值。
     </script>
 </head>

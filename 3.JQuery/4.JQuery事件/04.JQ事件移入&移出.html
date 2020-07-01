@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+        }
+    </style>
+    <script src="../0.File/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*
+            *  一、鼠标移入移出事件,一共分为分两组
+            *     在原生JS中:
+            *       会触发子元素,产生冒泡
+            *       onmouseover,onmouseout;
+            *       不会触发子元素
+            *       onmouseenter,onmouseleave
+            * */
+
+            //移入移出的三种方式
+            /*  方式一、
+             *  $('.wrap').mouseover(function () {
+             *       console.log('mouseover')
+             *   }).mouseout(function () {
+             *       console.log('mouseout')
+             *   });
+             */
+
+            //方式二
+            $('.wrap').mouseenter(function () {
+                console.log('mouseenter')
+            }).mouseleave(function () {
+                console.log('mouseleave')
+            })
+
+            //方式三
+            $('.inner').hover(function () {
+                console.log('移入')
+            }, function () {
+                console.log('移出')
+            })
+            // hover传递两个参数 都为函数 第一个参数为移入的回调函数  第二个参数为移出的回调函数
+            //    如果只传递了一个参数  那么移入和移出都是使用这一个函数
+            //    hover底层使用mouseenter和mouseleave实现的
+        })
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="inner">
+        内部子元素div
+    </div>
+</div>
+</body>
+</html>

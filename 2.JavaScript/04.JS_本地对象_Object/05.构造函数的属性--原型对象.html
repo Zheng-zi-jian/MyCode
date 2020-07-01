@@ -9,7 +9,7 @@
          * 	(1)每一个函数中都有一个属性(prototype),这个属性对应着一个空对象，这个对象就是我们所谓的 原型对象.
          *          1.如果函数是作为普通函数调用的，则(prototype)没有任何作用.
          * 	        2.如果函数是作为构造函数调用的，那么通过该构造函数所创建的实例中都会有一个隐藏属性指向该原型对象.
-         *          3.原型对象中右一个属性constructor,他指向函数对象
+         *          3.原型对象中有一个属性constructor,他指向函数对象
          *               console.log(Date.prototype.constructor === Date);
 		 *	             console.log(Fun.prototype.constructor === Fun);
 		 *

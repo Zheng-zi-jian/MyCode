@@ -37,22 +37,19 @@
             *       clientX 返回当事件被触发时，鼠标指针的水平坐标。
             *       clientY 返回当事件被触发时，鼠标指针的垂直坐标。
             */
-            // 案例:当鼠标在A区域移动时,在B中显示鼠标的坐标数据
-            var areaDiv = document.getElementById("areaDiv");	// 获取areaDiv(移动区域)
+            // 6.JQuery案例练习:当鼠标在A区域移动时,在B中显示鼠标的坐标数
             var showMsg = document.getElementById("showMsg");	// 获取showMsg(显示区域)
 
-            areaDiv.onmousemove = function (event) {
+            document.onmousemove = function (event) {
                 var X = event.clientX;
                 var Y = event.clientY;
-                showMsg.innerHTML = "X-水平坐标:" + X + "\<br/>" + "Y-垂直坐标:" + Y;
+                showMsg.innerHTML = "X-水平坐标:" + X +"px"+ "\<br/>" + "Y-垂直坐标:" + Y+"px";
             }
         };
     </script>
 </head>
 <body>
 <button id="btn">我是一个按钮</button>
-<p>浏览测试区:</p>
-<div id="areaDiv"></div>
 <p>显示数据区:</p>
 <div id="showMsg"></div>
 </body>
