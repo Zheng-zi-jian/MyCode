@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>深拷贝-递归</title>
 </head>
+
 <body>
     <script>
         //创建一个对象
@@ -21,27 +23,27 @@
         };
 
         //创建一个函数,深拷贝函数.
-        function deepClone(data){
+        function deepClone(data) {
             //创建一个容器
             let container;
             //判断数据 data 的类型
             let type = getDataTypeStr(data);
-            if(type === 'Object'){
+            if (type === 'Object') {
                 container = {};
             }
             //如果数据为数组, 则容器为空数组
-            if(type === 'Array'){
+            if (type === 'Array') {
                 container = [];
             }
             //遍历对象 对属性进行复制 
-            for(let i in data){
+            for (let i in data) {
                 //判断属性值的类型
                 let type = getDataTypeStr(data[i]);
                 //如果为引用类型数据
-                if(type === 'Object' || type === 'Array'){
+                if (type === 'Object' || type === 'Array') {
                     //递归调用 deepClone 
                     container[i] = deepClone(data[i]);
-                }else{
+                } else {
                     //如果键值为非引用类型数据, 可以直接进行复制
                     container[i] = data[i];
                 }
@@ -57,7 +59,7 @@
         console.log(result);
 
         //封装函数获取数据的类型字符串
-        function getDataTypeStr(data){
+        function getDataTypeStr(data) {
             return Object.prototype.toString.call(data).slice(8, -1);
         }
         // console.log(getDataTypeStr('abc'));
@@ -65,6 +67,8 @@
         // console.log(getDataTypeStr({}));
         // console.log(getDataTypeStr([]));
         // console.log(getDataTypeStr(null));
-        // console.log(getDataTypeStr(undefined));
+        // console.log(getDataTypeStr(undefined));  
+    </script>
 </body>
+
 </html>
